@@ -26,6 +26,9 @@ class BaseViewController: UIViewController {
     //用户登录标记 来决定显示的视图
     var userLogon = false
     
+    //访客视图信息字典
+    var visitInfoDic: [String: String]?
+    
     //上拉刷新标记
     var isPullup = false
     
@@ -142,6 +145,9 @@ extension BaseViewController {
         //view.addSubview(visitorView)
         
         view.insertSubview(visitorView, belowSubview: navigationBar)
+        
+        //设置访客视图信息
+        visitorView.visitorInfo = visitInfoDic
         
     }
 

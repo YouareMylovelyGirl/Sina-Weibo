@@ -89,8 +89,11 @@ extension MainTabBarController {
     
     //设置所有子控制器
     fileprivate func setupChildViewControllers() {
+        
+        //现在很多应用程序中, 界面的创建都依赖网络的json
+        
         let array = [
-            ["className": "HomeController", "title": "首页", "imageName": "home"],
+            ["className": "HomeController", "title": "首页", "imageName": "home", "visitorInfo": ["imageName": "", "message" :"哈哈"]],
             ["className": "DiscoverController", "title": "发现", "imageName": "discover"],
             //中间按钮的占位
             ["className": " UIViewController"],
@@ -101,7 +104,7 @@ extension MainTabBarController {
         //这个数组中装的都是控制器
         var arrayM = [UIViewController]()
         for dict in array {
-            arrayM.append(controller(dict: dict))
+            arrayM.append(controller(dict: dict as [String : AnyObject]))
         }
         
         viewControllers = arrayM
@@ -111,11 +114,11 @@ extension MainTabBarController {
     ///
     /// - Parameter dict: 信息字典
     /// - Returns: 自控制器
-    private func controller(dict: [String: String]) -> UIViewController {
+    private func controller(dict: [String: AnyObject]) -> UIViewController {
         //1. 取得字典内容
-        guard let className = dict["className"],
-        let title = dict["title"],
-        let imageName = dict["imageName"],
+        guard let className = dict["className"] as? String,
+        let title = dict["title"] as? String,
+        let imageName = dict["imageName"] as? String,
         let cls = NSClassFromString(Bundle.main.namespace + "." + className) as? UIViewController.Type
         else {
             return  UIViewController()
