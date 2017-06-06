@@ -149,6 +149,10 @@ extension BaseViewController {
         //设置访客视图信息
         visitorView.visitorInfo = visitInfoDic
         
+        //添加访客视图按钮的监听方法
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        
     }
 
 }
@@ -192,5 +196,16 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
 //        print("section --- \(section)")
+    }
+}
+
+// MARK: - 访客视图监听方法
+extension BaseViewController {
+    @objc fileprivate func login() {
+        print("用户登录")
+    }
+    
+    @objc fileprivate func register() {
+        print("用户注册")
     }
 }
