@@ -1,0 +1,114 @@
+//
+//  VisitorView.swift
+//  新浪微博
+//
+//  Created by 阳光 on 2017/6/6.
+//  Copyright © 2017年 YG. All rights reserved.
+//
+
+import UIKit
+
+/// 访客视图
+class VisitorView: UIView {
+    //构造函数
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - 私有控件
+    ///图像视图
+    fileprivate lazy var iconView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
+    ///小房子
+    fileprivate lazy var houseIconView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_house"))
+    ///提示标签
+    fileprivate lazy var tipLabel = { () -> UILabel in
+        let label = UILabel.init()
+        label.text = "关注一些人, 回这里看看有什么惊喜关注一些人, 回这里看看有什么惊喜"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.darkGray
+        label.sizeToFit()
+        return label
+    }()
+    ///注册按钮
+    fileprivate lazy var registerButton = { () -> UIButton in
+        let button = UIButton.init(type: .custom)
+        button.setTitle("注册", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(UIColor.orange, for: .normal)
+        button.setTitleColor(UIColor.blue, for: .highlighted)
+        button.setBackgroundImage(UIImage.init(named: "visitordiscover_feed_mask_smallicon"), for: .normal)
+        button.sizeToFit()
+        
+        return button
+    }()
+    ///登录按钮
+    fileprivate lazy var loginButton = { () -> UIButton in
+        let button = UIButton.init(type: .custom)
+        button.setTitle("登录", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.setTitleColor(UIColor.blue, for: .highlighted)
+        button.setBackgroundImage(UIImage.init(named: "visitordiscover_feed_mask_smallicon"), for: .normal)
+        button.sizeToFit()
+        
+        return button
+    }()
+}
+
+// MARK: - 设置界面
+extension VisitorView {
+    
+    fileprivate func setupUI() {
+        backgroundColor = UIColor.white
+        
+        //1. 添加控件
+        addSubview(iconView)
+        addSubview(houseIconView)
+        addSubview(tipLabel)
+        addSubview(registerButton)
+        addSubview(loginButton)
+        
+        //2. 使用原生自动布局 需要 取消autoresizing
+        for v in subviews {
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        //3. 自动布局
+        //1> 图像视图
+        addConstraint(NSLayoutConstraint(item: iconView,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .centerX,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: iconView,
+                                         attribute: .centerY,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .centerY,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        
+        //2> 小房子
+        addConstraint(NSLayoutConstraint(item: houseIconView,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: iconView,
+                                         attribute: .centerX,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: houseIconView,
+                                         attribute: .centerY,
+                                         relatedBy: .equal,
+                                         toItem: iconView,
+                                         attribute: .centerY,
+                                         multiplier: 1.0,
+                                         constant: 0))
+    }
+}
