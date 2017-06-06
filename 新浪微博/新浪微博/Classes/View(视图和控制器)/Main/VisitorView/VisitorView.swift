@@ -23,6 +23,10 @@ class VisitorView: UIView {
     //MARK: - 私有控件
     ///图像视图
     fileprivate lazy var iconView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
+    
+    //模糊图片
+    fileprivate var maskIconView: UIImageView = UIImageView(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
+    
     ///小房子
     fileprivate lazy var houseIconView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_house"))
     ///提示标签
@@ -70,6 +74,7 @@ extension VisitorView {
         
         //1. 添加控件
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseIconView)
         addSubview(tipLabel)
         addSubview(registerButton)
@@ -97,7 +102,7 @@ extension VisitorView {
                                          toItem: self,
                                          attribute: .centerY,
                                          multiplier: 1.0,
-                                         constant: 0))
+                                         constant: -90))
         
         //2> 小房子
         addConstraint(NSLayoutConstraint(item: houseIconView,
@@ -181,6 +186,22 @@ extension VisitorView {
                                          toItem: nil, attribute: .notAnAttribute,
                                          multiplier: 1.0,
                                          constant: 100))
+        
+        //6> 遮罩图像 
+        //views: 定义VFL中的控件名称和实际名称映射关系
+        //metrice: 定义VFL中() 指定的常熟映射关系
+        let viewDict = ["maskIconView": maskIconView,
+                        "registerButton": registerButton] as [String : Any]
+        let metrice = ["spacing": -35]
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[maskIconView]-0-|",
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: viewDict))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[maskIconView]-(spacing)-[registerButton]",
+                                                      options: [],
+                                                      metrics: metrice,
+                                                      views: viewDict))
+        
     }
 }
 
