@@ -91,8 +91,18 @@ extension MainTabBarController {
     fileprivate func setupChildViewControllers() {
         
         //现在很多应用程序中, 界面的创建都依赖网络的json
+        //从bundle加载配置json
+        //1. 路径 / 2. 加载NSData / 3. 反序列化加载数组
+        guard let path = Bundle.main.path(forResource: "Main.json", ofType: nil),
+            let data = NSData(contentsOfFile: path),
+            //JSON 到Data 反序列化
+            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]] else {
+            return
+        }
         
-        let array = [
+        
+/*
+        let array1 = [
             ["className": "HomeController", "title": "首页", "imageName": "home", "visitorInfo": ["imageName": "", "message" :"关注一些人,回这里看看有什么惊喜"]],
             ["className": "DiscoverController", "title": "发现", "imageName": "discover", "visitorInfo": ["imageName": "visitordiscover_image_message", "message" :"登陆后, 别人评论你的微博, 发给你的消息, 都会在这里收到通知"]],
 
@@ -110,10 +120,10 @@ extension MainTabBarController {
         //数组 -> json 序列化
         let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
         (data as NSData).write(toFile: "/Users/koreyoshi/Desktop/Main.jason", atomically: true)
-        
+*/
         //这个数组中装的都是控制器
         var arrayM = [UIViewController]()
-        for dict in array {
+        for dict in array! {
             //string , array, dictionary 加as不需要! ? 桥接
             arrayM.append(controller(dict: dict as [String : AnyObject]))
         }
