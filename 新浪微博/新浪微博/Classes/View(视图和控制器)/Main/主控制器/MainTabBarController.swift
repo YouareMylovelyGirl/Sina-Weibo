@@ -93,17 +93,24 @@ extension MainTabBarController {
         //现在很多应用程序中, 界面的创建都依赖网络的json
         
         let array = [
-            ["className": "HomeController", "title": "首页", "imageName": "home", "visitorInfo": ["imageName": "", "message" :"哈哈"]],
-            ["className": "DiscoverController", "title": "发现", "imageName": "discover"],
+            ["className": "HomeController", "title": "首页", "imageName": "home", "visitorInfo": ["imageName": "", "message" :"关注一些人"]],
+            ["className": "DiscoverController", "title": "发现", "imageName": "discover", "visitorInfo": ["imageName": "visitordiscover_image_message", "message" :"登陆后, 别人评论你的微博, 发给你的消息, 都会在这里收到通知"]],
+
             //中间按钮的占位
             ["className": " UIViewController"],
-            ["className": "MessageController", "title": "消息", "imageName": "message_center"],
-            ["className": "ProfileController", "title": "我", "imageName": "profile"],
-            
+            ["className": "MessageController", "title": "消息", "imageName": "message_center", "visitorInfo": ["imageName": "visitordiscover_image_message", "message" :"登录后, 最新, 最热微博仅在掌握, 不再与时事潮流擦肩而过"]],
+
+            ["className": "ProfileController", "title": "我", "imageName": "profile", "visitorInfo": ["imageName": "visitordiscover_image_profile", "message" :"登陆后,你的微博,相册,个人资料会显示在这里,展示给别人"]],
+
         ]
+        
+        //如果想要写入沙盒, 需要用array转成NSarray, 转换成plist数据更加直观
+//        (array as NSArray).write(toFile: <#T##String#>, atomically: <#T##Bool#>)
+        
         //这个数组中装的都是控制器
         var arrayM = [UIViewController]()
         for dict in array {
+            //string , array, dictionary 加as不需要! ? 桥接
             arrayM.append(controller(dict: dict as [String : AnyObject]))
         }
         
