@@ -10,7 +10,29 @@ import UIKit
 
 /// 访客视图
 class VisitorView: UIView {
-    //构造函数
+    
+    //访客视图的信息字典 [imageName/ message]
+    //如果是首页 imageName = ""
+    var visitorInfo: [String: String]? {
+        didSet {
+            //1> 获取字典信息
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"] else {
+                    return
+            }
+            //2> 设置消息
+            tipLabel.text = message
+            
+            //3> 设置图像, 首页不需要设置
+            if imageName == "" {
+                return
+            }
+            
+            iconView.image = UIImage(named: imageName)
+        }
+    }
+    
+    //MARK: - 构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -20,28 +42,7 @@ class VisitorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - 设置访客视图信息
-    
-    /// 使用字典设置访客视图的信息
-    ///
-    /// - Parameter dict: [imageName / message]
-    func setupInfo(dict: [String: String]) {
-        //1> 获取字典信息
-        guard let imageName = dict["imageName"],
-            let message = dict["message"] else {
-                return
-        }
-        //2> 设置消息
-        tipLabel.text = message
-        
-        //3> 设置图像, 首页不需要设置
-        if imageName == "" {
-            return
-        }
-        
-        iconView.image = UIImage(named: imageName)
-        
-    }
+   
     
     
     //MARK: - 私有控件
