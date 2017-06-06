@@ -25,10 +25,16 @@ class VisitorView: UIView {
             
             //3> 设置图像, 首页不需要设置
             if imageName == "" {
+                startAnimation()
                 return
             }
             
             iconView.image = UIImage(named: imageName)
+            
+            //其他控制器的访客视图不需要显示小房子
+            houseIconView.isHidden = true
+            //遮罩视图也不需要了
+            maskIconView.isHidden = true
         }
     }
     
@@ -42,6 +48,23 @@ class VisitorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+    //MARK: - 私有方法
+    ///设置旋转动画
+    private func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.toValue = 2 * Double.pi
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 15
+        
+        //完成之后不删除, 如果iconView被释放, 动画会一起销毁!
+        //在设置连续动画时非常有用
+        anim.isRemovedOnCompletion = false
+        
+        //将动画添加到图层
+        iconView.layer.add(anim, forKey: nil)
+    }
    
     
     

@@ -21,6 +21,7 @@
 		A48FD96B1EE665E600925D89 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FD9681EE665E600925D89 /* MainNavigationController.swift */; };
 		A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FD9691EE665E600925D89 /* MainTabBarController.swift */; };
 		A48FD96E1EE6661200925D89 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FD96D1EE6661200925D89 /* VisitorView.swift */; };
+		A48FD9701EE6CAC700925D89 /* Main.jason in Resources */ = {isa = PBXBuildFile; fileRef = A48FD96F1EE6CAC700925D89 /* Main.jason */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A48FD9681EE665E600925D89 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		A48FD9691EE665E600925D89 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A48FD96D1EE6661200925D89 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		A48FD96F1EE6CAC700925D89 /* Main.jason */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Main.jason; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		A48FD9661EE665E600925D89 /* 主控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				A48FD96F1EE6CAC700925D89 /* Main.jason */,
 				A48FD9671EE665E600925D89 /* BaseViewController.swift */,
 				A48FD9681EE665E600925D89 /* MainNavigationController.swift */,
 				A48FD9691EE665E600925D89 /* MainTabBarController.swift */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A48FD9701EE6CAC700925D89 /* Main.jason in Resources */,
 				A45A02811EE5510200425C64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

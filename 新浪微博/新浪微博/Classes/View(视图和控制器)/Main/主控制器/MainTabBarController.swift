@@ -93,7 +93,7 @@ extension MainTabBarController {
         //现在很多应用程序中, 界面的创建都依赖网络的json
         
         let array = [
-            ["className": "HomeController", "title": "首页", "imageName": "home", "visitorInfo": ["imageName": "", "message" :"关注一些人"]],
+            ["className": "HomeController", "title": "首页", "imageName": "home", "visitorInfo": ["imageName": "", "message" :"关注一些人,回这里看看有什么惊喜"]],
             ["className": "DiscoverController", "title": "发现", "imageName": "discover", "visitorInfo": ["imageName": "visitordiscover_image_message", "message" :"登陆后, 别人评论你的微博, 发给你的消息, 都会在这里收到通知"]],
 
             //中间按钮的占位
@@ -106,6 +106,10 @@ extension MainTabBarController {
         
         //如果想要写入沙盒, 需要用array转成NSarray, 转换成plist数据更加直观
 //        (array as NSArray).write(toFile: <#T##String#>, atomically: <#T##Bool#>)
+        
+        //数组 -> json 序列化
+        let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+        (data as NSData).write(toFile: "/Users/koreyoshi/Desktop/Main.jason", atomically: true)
         
         //这个数组中装的都是控制器
         var arrayM = [UIViewController]()
@@ -126,7 +130,8 @@ extension MainTabBarController {
         guard let className = dict["className"] as? String,
         let title = dict["title"] as? String,
         let imageName = dict["imageName"] as? String,
-        let cls = NSClassFromString(Bundle.main.namespace + "." + className) as? UIViewController.Type
+        let cls = NSClassFromString(Bundle.main.namespace + "." + className) as? BaseViewController.Type,
+        let visitorDict = dict["visitorInfo"] as? [String: String]
         else {
             return  UIViewController()
         }
@@ -134,6 +139,10 @@ extension MainTabBarController {
         let vc = cls.init()
         //3. 设置标题
         vc.title = title
+        
+        //设置控制器的访客信息字典
+        vc.visitInfoDic = visitorDict
+        
         //4. 设置图片并且设置模式
         vc.tabBarItem.image = UIImage(named: "tabbar_"+imageName)?.withRenderingMode(.alwaysOriginal)
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+imageName+"_highlighted")?.withRenderingMode(.alwaysOriginal)

@@ -1,0 +1,41 @@
+[
+  {
+    "visitorInfo" : {
+      "imageName" : "",
+      "message" : "关注一些人,回这里看看有什么惊喜"
+    },
+    "className" : "HomeController",
+    "title" : "首页",
+    "imageName" : "home"
+  },
+  {
+    "visitorInfo" : {
+      "imageName" : "visitordiscover_image_message",
+      "message" : "登陆后, 别人评论你的微博, 发给你的消息, 都会在这里收到通知"
+    },
+    "className" : "DiscoverController",
+    "title" : "发现",
+    "imageName" : "discover"
+  },
+  {
+    "className" : " UIViewController"
+  },
+  {
+    "visitorInfo" : {
+      "imageName" : "visitordiscover_image_message",
+      "message" : "登录后, 最新, 最热微博仅在掌握, 不再与时事潮流擦肩而过"
+    },
+    "className" : "MessageController",
+    "title" : "消息",
+    "imageName" : "message_center"
+  },
+  {
+    "visitorInfo" : {
+      "imageName" : "visitordiscover_image_profile",
+      "message" : "登陆后,你的微博,相册,个人资料会显示在这里,展示给别人"
+    },
+    "className" : "ProfileController",
+    "title" : "我",
+    "imageName" : "profile"
+  }
+]
