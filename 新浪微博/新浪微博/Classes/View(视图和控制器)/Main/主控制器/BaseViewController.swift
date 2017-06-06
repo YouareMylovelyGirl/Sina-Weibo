@@ -67,7 +67,7 @@ class BaseViewController: UIViewController {
 // MARK: - 设置界面
 extension BaseViewController {
     
-    func setupUI() {
+    fileprivate func setupUI() {
         
         //取消自动缩进 - 如果隐藏了曹行栏, 会自动缩进20个点
         automaticallyAdjustsScrollViewInsets = false;
@@ -78,7 +78,7 @@ extension BaseViewController {
         view.backgroundColor = UIColor.init().randomColor
         
         //加载导航控制器
-        setupNavigationNar()
+        setupNavigationBar()
         
         //三目运算判断应该加载哪一个视图
         userLogon ? setupTableView() : setupVisitorView()
@@ -86,22 +86,25 @@ extension BaseViewController {
     }
     
     //设置导航条   抽取消防法
-    private func setupNavigationNar() {
+    private func setupNavigationBar() {
         //添加导航条
         view.addSubview(navigationBar)
         
         //将Item设置给bar
         navigationBar.items = [navItem]
         
-        //这只navBar的渲染颜色
+        //这只navBar的渲染颜色 设置整个背景的颜色
         //        navigationBar.barTintColor = UIColor.init(white: 0.9, alpha: 1.0)
         //或者设置到航条不透明
         navigationBar.isTranslucent = false
         //设置NavBar的字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.darkGray]
+        //设置系统按钮的文字渲染颜色
+        navigationBar.tintColor = UIColor.orange
     }
     
-    //设置表格视图
+    //设置表格视图  - 用户登陆之后执行 (子类重写此方法)
+    //因为子类不需要关心用户登录之前的逻辑
     func setupTableView() {
         
         //如果没有登录tableView中的视图就不用先加载了
@@ -146,13 +149,16 @@ extension BaseViewController {
         
         view.insertSubview(visitorView, belowSubview: navigationBar)
         
-        //设置访客视图信息
+        //1. 设置访客视图信息
         visitorView.visitorInfo = visitInfoDic
         
-        //添加访客视图按钮的监听方法
+        //2. 添加访客视图按钮的监听方法
         visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        //3. 设置导航条按钮 左右两端按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
         
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
     }
 
 }

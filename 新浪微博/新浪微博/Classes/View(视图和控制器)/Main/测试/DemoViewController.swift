@@ -25,13 +25,21 @@ class DemoViewController: BaseViewController {
 }
 
 extension DemoViewController {
-    override func setupUI() {
-        super.setupUI()
+    
+    override func setupTableView() {
+        super.setupTableView()
         
-        //设置右边的控制器
-        //Swift调用OC返回instancetype的方法,判断不出是否可选 加一个?
-        
-        //便利构造函数   
+        //便利构造函数
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", fontSize: 16, target: self, action: #selector(showNext))
     }
+    
+//    override func setupUI() {
+//        super.setupUI()
+//        
+//        //设置右边的控制器
+//        //Swift调用OC返回instancetype的方法,判断不出是否可选 加一个?
+//        
+//        //便利构造函数   
+//        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", fontSize: 16, target: self, action: #selector(showNext))
+//    }
 }

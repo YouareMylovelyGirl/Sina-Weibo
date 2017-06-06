@@ -78,18 +78,27 @@ extension HomeController {
      父类写了一个方法, 子类去重写这个方法, 这样就能做到每一个控制器定制化
      */
     
-    //重写父类方法
-    override func setupUI() {
-        super.setupUI()
-        //设置导航栏按钮
-        //Swift调用OC返回instancetype的方法,判断不出是否可选
-        //便利构造函数
-        
-        //Swift中的便利构造函数就相当关于OC中的重写构造函数 init
+    override func setupTableView() {
+        super.setupTableView()
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 16, target: self, action: #selector(showFriends))
-        
+
         //这里需要先注册原形cell
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
-        
     }
+    
+    
+    //重写父类方法
+//    override func setupUI() {
+//        super.setupUI()
+//        //设置导航栏按钮
+//        //Swift调用OC返回instancetype的方法,判断不出是否可选
+//        //便利构造函数
+//        
+//        //Swift中的便利构造函数就相当关于OC中的重写构造函数 init
+//        navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 16, target: self, action: #selector(showFriends))
+//        
+//        //这里需要先注册原形cell
+//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+//        
+//    }
 }
