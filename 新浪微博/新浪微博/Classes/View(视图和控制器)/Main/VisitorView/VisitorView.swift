@@ -20,6 +20,30 @@ class VisitorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - 设置访客视图信息
+    
+    /// 使用字典设置访客视图的信息
+    ///
+    /// - Parameter dict: [imageName / message]
+    func setupInfo(dict: [String: String]) {
+        //1> 获取字典信息
+        guard let imageName = dict["imageName"],
+            let message = dict["message"] else {
+                return
+        }
+        //2> 设置消息
+        tipLabel.text = message
+        
+        //3> 设置图像, 首页不需要设置
+        if imageName == "" {
+            return
+        }
+        
+        iconView.image = UIImage(named: imageName)
+        
+    }
+    
+    
     //MARK: - 私有控件
     ///图像视图
     fileprivate lazy var iconView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
@@ -70,7 +94,9 @@ class VisitorView: UIView {
 extension VisitorView {
     
     fileprivate func setupUI() {
-        backgroundColor = UIColor.white
+        //0XEDEDED 背景颜色
+        //以后能够使用颜色就不要使用图片
+        backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
         
         //1. 添加控件
         addSubview(iconView)
@@ -102,7 +128,7 @@ extension VisitorView {
                                          toItem: self,
                                          attribute: .centerY,
                                          multiplier: 1.0,
-                                         constant: -90))
+                                         constant: -30))
         
         //2> 小房子
         addConstraint(NSLayoutConstraint(item: houseIconView,
@@ -187,12 +213,12 @@ extension VisitorView {
                                          multiplier: 1.0,
                                          constant: 100))
         
-        //6> 遮罩图像 
+        //6> 遮罩图像 VFL
         //views: 定义VFL中的控件名称和实际名称映射关系
         //metrice: 定义VFL中() 指定的常熟映射关系
         let viewDict = ["maskIconView": maskIconView,
                         "registerButton": registerButton] as [String : Any]
-        let metrice = ["spacing": -35]
+        let metrice = ["spacing": -50]
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[maskIconView]-0-|",
                                                       options: [],
                                                       metrics: nil,
