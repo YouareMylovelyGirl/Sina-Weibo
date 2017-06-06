@@ -11,11 +11,39 @@ import UIKit
 /// 访客视图
 class VisitorView: UIView {
     
+    ///注册按钮
+        lazy var registerButton = { () -> UIButton in
+        let button = UIButton.init(type: .system)
+        button.setTitle("注册", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(UIColor.orange, for: .normal)
+        button.setTitleColor(UIColor.blue, for: .highlighted)
+        button.setBackgroundImage(UIImage.init(named: "common_button_white_disable"), for: .normal)
+        button.sizeToFit()
+        
+        return button
+    }()
+    ///登录按钮
+        lazy var loginButton = { () -> UIButton in
+        let button = UIButton.init(type: .system)
+        button.setTitle("登录", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.setTitleColor(UIColor.blue, for: .highlighted)
+        button.setBackgroundImage(UIImage.init(named: "common_button_white_disable"), for: .normal)
+        button.sizeToFit()
+        
+        return button
+    }()
+
+    
+    
     //访客视图的信息字典 [imageName/ message]
     //如果是首页 imageName = ""
     var visitorInfo: [String: String]? {
         didSet {
             //1> 获取字典信息
+            //这个时候visitorInfo就已经有值了
             guard let imageName = visitorInfo?["imageName"],
                 let message = visitorInfo?["message"] else {
                     return
@@ -87,30 +115,6 @@ class VisitorView: UIView {
         label.textAlignment = NSTextAlignment.center
         label.sizeToFit()
         return label
-    }()
-    ///注册按钮
-    fileprivate lazy var registerButton = { () -> UIButton in
-        let button = UIButton.init(type: .system)
-        button.setTitle("注册", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitleColor(UIColor.orange, for: .normal)
-        button.setTitleColor(UIColor.blue, for: .highlighted)
-        button.setBackgroundImage(UIImage.init(named: "common_button_white_disable"), for: .normal)
-        button.sizeToFit()
-        
-        return button
-    }()
-    ///登录按钮
-    fileprivate lazy var loginButton = { () -> UIButton in
-        let button = UIButton.init(type: .system)
-        button.setTitle("登录", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitleColor(UIColor.darkGray, for: .normal)
-        button.setTitleColor(UIColor.blue, for: .highlighted)
-        button.setBackgroundImage(UIImage.init(named: "common_button_white_disable"), for: .normal)
-        button.sizeToFit()
-        
-        return button
     }()
 }
 
@@ -254,6 +258,7 @@ extension VisitorView {
         
     }
 }
+
 
 
 
