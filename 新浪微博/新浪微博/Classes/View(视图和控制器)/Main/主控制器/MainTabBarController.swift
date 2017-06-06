@@ -90,13 +90,27 @@ extension MainTabBarController {
     //设置所有子控制器
     fileprivate func setupChildViewControllers() {
         
+        //0. 获取沙盒路径
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let jsonPath = (docDir as NSString).appendingPathComponent("Main.json")
+
+        //加载data
+        var data = NSData(contentsOfFile: jsonPath)
+        
+        //判断data是否有内容, 如果没有, 说明本地沙河没有文件
+        if data == nil {
+            //从bundle中加载date
+            let path = Bundle.main.path(forResource: "Main.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+            
+        }
+        
+        
         //现在很多应用程序中, 界面的创建都依赖网络的json
         //从bundle加载配置json
-        //1. 路径 / 2. 加载NSData / 3. 反序列化加载数组
-        guard let path = Bundle.main.path(forResource: "Main.json", ofType: nil),
-            let data = NSData(contentsOfFile: path),
+        //反序列化加载数组
             //JSON 到Data 反序列化
-            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]] else {
+            guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String: AnyObject]] else {
             return
         }
         
