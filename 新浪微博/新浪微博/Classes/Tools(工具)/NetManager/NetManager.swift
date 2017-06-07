@@ -15,4 +15,7 @@ class NetManager: AFHTTPSessionManager {
     //单例  静态区/常量/闭包/
     //在第一次访问时执行闭包,并且将结果保存在sharedManager中
     static let sharedManager = NetManager()
+    
+    
+    
 }
