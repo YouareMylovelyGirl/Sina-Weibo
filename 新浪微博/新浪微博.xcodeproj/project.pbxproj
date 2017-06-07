@@ -25,6 +25,7 @@
 		A4B856671EE7B44F007FD58F /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B856661EE7B44F007FD58F /* NetManager.swift */; };
 		A4D9F8901EE7D80E00778047 /* NetManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9F88F1EE7D80E00778047 /* NetManager+Extension.swift */; };
 		A4D9F8921EE7EA8300778047 /* StatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9F8911EE7EA8300778047 /* StatusItem.swift */; };
+		A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9F8931EE7ECBF00778047 /* StatusListViewModel.swift */; };
 		EF494E33EE69EF9B4E7CB1B8 /* Pods_____.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		A4B856661EE7B44F007FD58F /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
 		A4D9F88F1EE7D80E00778047 /* NetManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetManager+Extension.swift"; sourceTree = "<group>"; };
 		A4D9F8911EE7EA8300778047 /* StatusItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItem.swift; sourceTree = "<group>"; };
+		A4D9F8931EE7ECBF00778047 /* StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 		A45A02941EE556E400425C64 /* ViewModel(视图模型) */ = {
 			isa = PBXGroup;
 			children = (
+				A4D9F8931EE7ECBF00778047 /* StatusListViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */,
 				A4D9F8921EE7EA8300778047 /* StatusItem.swift in Sources */,
 				A45A02A41EE557EE00425C64 /* ProfileController.swift in Sources */,
+				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

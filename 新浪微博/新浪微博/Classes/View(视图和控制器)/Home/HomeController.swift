@@ -12,8 +12,10 @@ import UIKit
 fileprivate let cellID = "cellID"
 
 class HomeController: BaseViewController {
-    //懒加载
-    fileprivate lazy var statusList = [String]()
+    
+    //列表视图模型
+    fileprivate lazy var listViewModel = StatusListViewModel()
+    
     
     
     /// 显示好友
@@ -29,26 +31,7 @@ class HomeController: BaseViewController {
     //加载数据
     override func loadData() {
         
-        NetManager.shareInstance.stausList { (list, error) in
-            
-            print(list!)
-        }
-        
-        
-        print("开始加载数据")
-        //模拟延时加载数据 -> dispatch_after
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
-            for i in 0..<15 {
-                if self.isPullup {
-                    self.statusList.append("上拉\(i)")
-                } else {
-                    //将数据插入到数组顶部
-                    self.statusList.insert(i.description, at: 0)                    
-                }
-                
-                
-            }
+        listViewModel.loadStatus { (error) in
             print("加载数据结束")
             //结束刷新控件
             self.refreshControl?.endRefreshing()
@@ -63,14 +46,14 @@ class HomeController: BaseViewController {
 // MARK: - 表格数据源方法, 具体的数据源方法实现,不需要super
 extension HomeController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusList.count
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //1. 取cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID,for: indexPath)
         //2. 设置cell
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         //3. 返回cell
         return cell
     }
