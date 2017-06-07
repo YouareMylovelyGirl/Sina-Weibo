@@ -29,6 +29,17 @@ class HomeController: BaseViewController {
     //加载数据
     override func loadData() {
         
+        //用AFN加载网络数据
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let params = ["access_token": "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"]
+        
+        NetManager.sharedManager.get(urlString, parameters: params, progress: nil, success: { (_, data) in
+            print(data as Any)
+        }) { (_, error) in
+            print(error)
+        }
+        
+        
         print("开始加载数据")
         //模拟延时加载数据 -> dispatch_after
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
