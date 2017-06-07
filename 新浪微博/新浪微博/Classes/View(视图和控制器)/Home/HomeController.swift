@@ -29,7 +29,9 @@ class HomeController: BaseViewController {
     //加载数据
     override func loadData() {
         
-
+        NetManager.shareInstance.stausList { (list, error) in
+            print(list!)
+        }
         
         
         print("开始加载数据")

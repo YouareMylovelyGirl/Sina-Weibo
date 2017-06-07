@@ -41,15 +41,50 @@ class NetManager: AFHTTPSessionManager {
     ///   - params: 参数字典
     ///   - success: 成功时候的回调
     ///   - failure: 失败时的回调
-    func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any], success: @escaping([String : Any]?) ->(),failure: @escaping( _ error : Error?) -> ()){
+//    func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any], success: @escaping([String : Any]?) ->(),failure: @escaping( _ error : Error?) -> ()){
+//        //成功
+//        let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
+//            success(responseObj as? [String : Any])
+//        }
+//        
+//        //失败
+//        let failureBlock = {(task : URLSessionDataTask?,error:Error) in
+//            failure(error)
+//        }
+//        
+//        //GET
+//        if requestType == .GET {
+//            get(url, parameters: params, progress: nil, success: successBlock, failure: failureBlock)
+//            
+//        }
+//        
+//        //POST
+//        if requestType == .POST {
+//            post(url, parameters: params, progress: nil, success: successBlock, failure: failureBlock)
+//
+//        }
+//    }
+    
+    
+    
+    
+    /// 修改后的网络请求
+    ///
+    /// - Parameters:
+    ///   - requestType: 请求方式
+    ///   - url: URLString
+    ///   - params: 请求参数
+    ///   - completionHandler: data和error
+    func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any], completionHandler: @escaping([String : Any]?, _ error : Error?) ->()){
         //成功
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
-            success(responseObj as? [String : Any])
+            completionHandler(responseObj as? [String : Any], nil)
         }
         
         //失败
         let failureBlock = {(task : URLSessionDataTask?,error:Error) in
-            failure(error)
+            print(error)
+            completionHandler(nil, error)
         }
         
         //GET
@@ -61,7 +96,7 @@ class NetManager: AFHTTPSessionManager {
         //POST
         if requestType == .POST {
             post(url, parameters: params, progress: nil, success: successBlock, failure: failureBlock)
-
+            
         }
     }
 }
