@@ -22,11 +22,12 @@
 		A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FD9691EE665E600925D89 /* MainTabBarController.swift */; };
 		A48FD96E1EE6661200925D89 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FD96D1EE6661200925D89 /* VisitorView.swift */; };
 		A48FD9701EE6CAC700925D89 /* Main.json in Resources */ = {isa = PBXBuildFile; fileRef = A48FD96F1EE6CAC700925D89 /* Main.json */; };
+		A4B856671EE7B44F007FD58F /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B856661EE7B44F007FD58F /* NetManager.swift */; };
 		EF494E33EE69EF9B4E7CB1B8 /* Pods_____.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_____.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F4DA23D01FDC9FED8398B9 /* Pods-新浪微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.debug.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.debug.xcconfig"; sourceTree = "<group>"; };
 		6F31289FA50014B34F1A21B8 /* Pods-新浪微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.release.xcconfig"; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +47,7 @@
 		A48FD9691EE665E600925D89 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A48FD96D1EE6661200925D89 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		A48FD96F1EE6CAC700925D89 /* Main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Main.json; sourceTree = "<group>"; };
+		A4B856661EE7B44F007FD58F /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		A45A028D1EE556E400425C64 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				A4B856611EE7B34E007FD58F /* NetManager */,
 				A45A02A51EE55FC000425C64 /* Extension */,
 			);
 			path = "Tools(工具)";
@@ -221,6 +224,14 @@
 			path = "主控制器";
 			sourceTree = "<group>";
 		};
+		A4B856611EE7B34E007FD58F /* NetManager */ = {
+			isa = PBXGroup;
+			children = (
+				A4B856661EE7B44F007FD58F /* NetManager.swift */,
+			);
+			path = NetManager;
+			sourceTree = "<group>";
+		};
 		E6C41F5A68BDEC1C39A39FDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +276,7 @@
 				TargetAttributes = {
 					A45A02751EE5510200425C64 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -359,6 +371,7 @@
 				A48FD96B1EE665E600925D89 /* MainNavigationController.swift in Sources */,
 				A45A02A21EE557E400425C64 /* MessageController.swift in Sources */,
 				A45A02AE1EE5B13400425C64 /* UIBarButtonItem+Extension.swift in Sources */,
+				A4B856671EE7B44F007FD58F /* NetManager.swift in Sources */,
 				A48FD96E1EE6661200925D89 /* VisitorView.swift in Sources */,
 				A45A02A71EE55FFF00425C64 /* Bundle+Extensions.swift in Sources */,
 				A45A02AC1EE57AA700425C64 /* DemoViewController.swift in Sources */,
@@ -470,11 +483,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "新浪微博/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YG.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -485,11 +501,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "新浪微博/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YG.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
