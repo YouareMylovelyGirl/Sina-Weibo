@@ -17,6 +17,11 @@ class MainTabBarController: UITabBarController {
         
         //设置中间按钮
         setupComposeButton()
+        
+        //测试未读数量
+        NetManager.shareInstance.unreadCount { (unmber) in
+            print("有未读消息\(unmber)条")
+        }
  
     }
     /*
