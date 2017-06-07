@@ -35,4 +35,17 @@ extension NetManager {
         
     }
     
+    ///返回微博的未读数量
+    func unreadCount(completionHandler:@escaping (_ count: Int)->()) {
+        guard let uid = uid else { return  }
+        let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
+        let params = ["uid": uid]
+        
+        tokenRequest(url: urlString, params: params) { (data, error) in
+            let dic = data as [String: AnyObject]?
+            let count = dic?["status"] as? Int
+            completionHandler(count ?? 0)
+        }
+    }
+    
 }
