@@ -24,7 +24,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     //用户登录标记 来决定显示的视图
-    var userLogon = true
+//    var userLogon = true
     
     //访客视图信息字典
     var visitInfoDic: [String: String]?
@@ -46,7 +46,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        NetManager.shareInstance.userLogon ? loadData() : ()
+        
     }
     
     //didSet: 重写set方法
@@ -81,7 +82,8 @@ extension BaseViewController {
         setupNavigationBar()
         
         //三目运算判断应该加载哪一个视图
-        userLogon ? setupTableView() : setupVisitorView()
+//        userLogon ? setupTableView() : setupVisitorView()
+        NetManager.shareInstance.userLogon ? setupTableView() : setupVisitorView()
         
     }
     
@@ -108,7 +110,7 @@ extension BaseViewController {
     func setupTableView() {
         
         //如果没有登录tableView中的视图就不用先加载了
-        if !userLogon {
+        if !(NetManager.shareInstance.userLogon) {
             return
         } else {
             

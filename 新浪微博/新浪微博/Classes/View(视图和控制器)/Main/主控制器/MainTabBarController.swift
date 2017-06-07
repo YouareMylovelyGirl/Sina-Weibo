@@ -120,11 +120,17 @@ extension MainTabBarController: UITabBarControllerDelegate {
 extension MainTabBarController {
     //定义时钟
     fileprivate func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        //时间间隔建议长一些 60s
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     ///中出发方法
     @objc fileprivate func updateTimer() {
+        
+        if !NetManager.shareInstance.userLogon {
+            return
+        }
+        
         //测试未读数量
         NetManager.shareInstance.unreadCount { (count) in
             

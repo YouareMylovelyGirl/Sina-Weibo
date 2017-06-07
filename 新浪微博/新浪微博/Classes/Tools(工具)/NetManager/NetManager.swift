@@ -23,9 +23,14 @@ class NetManager: AFHTTPSessionManager {
     //访问令牌有时限, token是有时限的, 默认用户是三天
     //token过期之后 -> 状态码是403
 //    var accessToken: String? = "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"
-    var accessToken: String? = "2.00UCb9cDnblSoB1a590c671703nzfT"
+    var accessToken: String?// = "2.00UCb9cDnblSoB1a590c671703nzfT"
     
     var uid: String? = "5365823342"
+    
+    //用户登录标记[计算型属性]
+    var userLogon: Bool {
+        return accessToken != nil
+    }
     
     //单例  静态区/常量/闭包/
     //在第一次访问时执行闭包,并且将结果保存在sharedManager中
