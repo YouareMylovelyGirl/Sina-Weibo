@@ -32,15 +32,18 @@ class HomeController: BaseViewController {
     override func loadData() {
         
         print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.last?.text))")
-        listViewModel.loadStatus(pullUp: self.isPullup) { (error) in
+        listViewModel.loadStatus(pullUp: isPullup) { (data, error, shouldRefredh) in
             print("加载数据结束")
             //结束刷新控件
             self.refreshControl?.endRefreshing()
             //恢复上拉刷新标记
             self.isPullup = false
-            self.tableView?.reloadData()
-        }
-        
+            
+            //刷新表格, 如果能够上啦刷新再去刷新
+            if shouldRefredh {
+                self.tableView?.reloadData()
+            }
+        }  
     }
 }
 
