@@ -24,7 +24,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     //用户登录标记 来决定显示的视图
-    var userLogon = false
+    var userLogon = true
     
     //访客视图信息字典
     var visitInfoDic: [String: String]?
