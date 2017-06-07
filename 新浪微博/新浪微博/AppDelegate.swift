@@ -15,18 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        //用AFN加载网络数据
-        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token": "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"]
 
-        
-        NetManager.shareInstance.request(url: urlString, params: params, success: { (data) in
-            print(data)
-        }) { (error) in
-            print(error)
-        }
        
         
         

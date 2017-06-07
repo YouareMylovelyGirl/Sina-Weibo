@@ -23,6 +23,7 @@
 		A48FD96E1EE6661200925D89 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FD96D1EE6661200925D89 /* VisitorView.swift */; };
 		A48FD9701EE6CAC700925D89 /* Main.json in Resources */ = {isa = PBXBuildFile; fileRef = A48FD96F1EE6CAC700925D89 /* Main.json */; };
 		A4B856671EE7B44F007FD58F /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B856661EE7B44F007FD58F /* NetManager.swift */; };
+		A4D9F8901EE7D80E00778047 /* NetManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9F88F1EE7D80E00778047 /* NetManager+Extension.swift */; };
 		EF494E33EE69EF9B4E7CB1B8 /* Pods_____.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		A48FD96D1EE6661200925D89 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		A48FD96F1EE6CAC700925D89 /* Main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Main.json; sourceTree = "<group>"; };
 		A4B856661EE7B44F007FD58F /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		A4D9F88F1EE7D80E00778047 /* NetManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetManager+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B856661EE7B44F007FD58F /* NetManager.swift */,
+				A4D9F88F1EE7D80E00778047 /* NetManager+Extension.swift */,
 			);
 			path = NetManager;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A48FD96A1EE665E600925D89 /* BaseViewController.swift in Sources */,
 				A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */,
 				A45A02A91EE569A900425C64 /* UIColor+Extensions.swift in Sources */,
+				A4D9F8901EE7D80E00778047 /* NetManager+Extension.swift in Sources */,
 				A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */,
 				A48FD96B1EE665E600925D89 /* MainNavigationController.swift in Sources */,
 				A45A02A21EE557E400425C64 /* MessageController.swift in Sources */,
