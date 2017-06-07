@@ -26,6 +26,9 @@ class MainTabBarController: UITabBarController {
         //定义时钟
         setupTimer()
         
+        //设置代理
+//        delegate = self as UITabBarControllerDelegate
+        
  
     }
     
@@ -78,6 +81,23 @@ class MainTabBarController: UITabBarController {
 
 }
 
+// MARK: - UITabBarControllerDelegate
+extension MainTabBarController: UITabBarControllerDelegate {
+    
+    /// 将要选择 TabBarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标控制器
+    /// - Returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        print("将要切换到 \(viewController)")
+        
+        //判断目标控制器是否是UIViewController, 如果是的话就不允许点击
+        return !viewController.isMember(of: UIViewController.self)
+    }
+}
+
 extension MainTabBarController {
     //定义时钟
     fileprivate func setupTimer() {
@@ -116,8 +136,8 @@ extension MainTabBarController {
         
         //计算按钮的宽度
         let count = CGFloat(childViewControllers.count)
-        // 向内缩进的宽度减少, 能够让按钮的宽度变大, 盖住容错点
-        let width = tabBar.bounds.width / count - 1
+        // 向内缩进的宽度
+        let width = tabBar.bounds.width / count
         //CGRectInset 正数向内缩进, 辅助向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
         
