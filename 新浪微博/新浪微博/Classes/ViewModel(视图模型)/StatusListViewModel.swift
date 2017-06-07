@@ -25,7 +25,13 @@ class StatusListViewModel {
     ///
     /// - Parameter completionHandler: 完成回调判断是否成功
     func loadStatus(completionHandler:@escaping (_ data: [[String: AnyObject]]?, _ error: NSError?)->()) {
-        NetManager.shareInstance.stausList { (data, error) in
+        
+        // since_id 取出数组中第一条微博的id
+        let since_id = statusList.first?.id ?? 0
+        
+        
+        
+        NetManager.shareInstance.stausList(since_id: since_id, max_id: 0) { (data, error) in
             
 //            print(data)
             
@@ -36,8 +42,12 @@ class StatusListViewModel {
                 
                 return
             }
-            //2. 拼接数据
-            self.statusList += array
+            
+            print("刷新到\(array.count)条数据")
+            
+            //2. FIXME拼接数据
+            //下拉刷新, 应该将结果数组拼接在数组前面
+            self.statusList += array + self.statusList
             //3. 这里很定有值, 返回data
             completionHandler(data, nil)
         }
