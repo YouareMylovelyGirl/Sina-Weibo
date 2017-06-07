@@ -20,6 +20,8 @@ enum HTTPMethod {
 class NetManager: AFHTTPSessionManager {
     
     //访问令牌, 所有网络请求都基于次令牌(登录除外)
+    //访问令牌有时限, token是有时限的, 默认用户是三天
+    //token过期之后 -> 状态码是403
     var accessToken: String? = "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"
     
     
@@ -47,13 +49,23 @@ class NetManager: AFHTTPSessionManager {
     func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any]?, completionHandler: @escaping([String : Any]?, _ error : Error?) ->()){
         //成功
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
+//            completionHandler(responseObj as? [String : Any], nil)
             completionHandler(responseObj as? [String : Any], nil)
         }
         
         //失败
         let failureBlock = {(task : URLSessionDataTask?,error:Error) in
             print(error)
-            completionHandler(nil, error)
+            //针对403处理永辉token过期
+            //如果父类要往子类转需要做强制类型转换
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                print("Token过期了")
+                
+                //FIXME: 发送通知, 提示用户在此登录(本方法不知道被谁调用, 谁接收到通知谁处理)
+            }
+            
+            
+//            completionHandler(nil, error)
         }
         
         //GET
@@ -77,7 +89,7 @@ class NetManager: AFHTTPSessionManager {
         //0. 判断token是否为nil, 为nil直接返回
         guard let token = accessToken else {
             print("没有token!需要登录")
-            
+            //FIXME: 发送通知提示用户登录
             return
         }
         

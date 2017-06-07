@@ -30,6 +30,7 @@ class HomeController: BaseViewController {
     override func loadData() {
         
         NetManager.shareInstance.stausList { (list, error) in
+            
             print(list!)
         }
         
