@@ -22,7 +22,9 @@ extension NetManager {
         
         //Swift 中 Int 可以转换成AnyObject / 但是Int64 不行, 但是可以将Int64 装换成字符串
         let params = ["since_id": "\(since_id)",
-                        "max_id": "\(max_id)"]
+            "max_id": "\(max_id > 0 ?max_id - 1 : 0)"]
+        
+        //提示: 服务器返回的字典, 就是按照时间倒序排序的
         
         tokenRequest(url: urlString, params: params) { (json, error) in
             
