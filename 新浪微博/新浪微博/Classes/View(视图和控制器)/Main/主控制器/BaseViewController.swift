@@ -211,6 +211,8 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
 extension BaseViewController {
     @objc fileprivate func login() {
         print("用户登录")
+        //发出通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:UserShouldLoginNotification), object: nil)
     }
     
     @objc fileprivate func register() {

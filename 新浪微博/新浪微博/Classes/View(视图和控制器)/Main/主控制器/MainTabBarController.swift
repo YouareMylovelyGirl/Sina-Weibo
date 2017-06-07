@@ -29,12 +29,18 @@ class MainTabBarController: UITabBarController {
         //设置代理
         delegate = self as UITabBarControllerDelegate
         
+        //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: UserShouldLoginNotification), object: nil)
+        
  
     }
     
     deinit {
         //销毁时钟
         timer?.invalidate()
+        
+        //注销通知
+        NotificationCenter.default.removeObserver(self)
     }
     
     /*
@@ -52,6 +58,12 @@ class MainTabBarController: UITabBarController {
     
 
     //MARK: - 监听方法
+    
+    @objc fileprivate func userLogin(n: Notification) {
+        print("用户通知\(n)")
+    }
+    
+    
     //FIXME: 没有实现
     //private: 能够保证方法私有, 仅在当前对象被访问
     //@objc 允许这个函数在运行时通过 OC 的消息被调用 
