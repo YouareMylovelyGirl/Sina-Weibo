@@ -16,9 +16,9 @@ extension NetManager {
     func stausList(completionHandler: @escaping (_ list: [[String: AnyObject]]?, _ error : NSError? ) -> ()) {
         //用AFN加载网络数据
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token": "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"]
+//        let params = ["access_token": "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"]
         
-        request(url: urlString, params: params) { (json, error) in
+        tokenRequest(url: urlString, params: nil) { (json, error) in
             
             let result = json?["statuses"] as? [[String: AnyObject]]
             
