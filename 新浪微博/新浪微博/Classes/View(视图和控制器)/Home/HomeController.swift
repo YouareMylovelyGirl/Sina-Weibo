@@ -31,7 +31,8 @@ class HomeController: BaseViewController {
     //加载数据
     override func loadData() {
         
-        listViewModel.loadStatus { (error) in
+        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.last?.text))")
+        listViewModel.loadStatus(pullUp: self.isPullup) { (error) in
             print("加载数据结束")
             //结束刷新控件
             self.refreshControl?.endRefreshing()

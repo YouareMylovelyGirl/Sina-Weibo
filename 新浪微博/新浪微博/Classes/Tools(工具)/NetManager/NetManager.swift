@@ -53,6 +53,10 @@ class NetManager: AFHTTPSessionManager {
             completionHandler(responseObj as? [String : Any], nil)
         }
         
+        
+        //对于测试用户(应用程序还没有提交给新浪微博审核)每天的刷新量是有限的!
+        //超出了会被锁定
+        //解决办法, 新建一个应用程序
         //失败
         let failureBlock = {(task : URLSessionDataTask?,error:Error) in
             print(error)
