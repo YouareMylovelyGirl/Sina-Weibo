@@ -10,6 +10,10 @@ import UIKit
 //主控制器
 class MainTabBarController: UITabBarController {
 
+    //定时器
+    fileprivate var timer: Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //设置所有自控制器
@@ -18,12 +22,18 @@ class MainTabBarController: UITabBarController {
         //设置中间按钮
         setupComposeButton()
         
-        //测试未读数量
-        NetManager.shareInstance.unreadCount { (unmber) in
-            print("有未读消息\(unmber)条")
-        }
+
+        //定义时钟
+        setupTimer()
+        
  
     }
+    
+    deinit {
+        //销毁时钟
+        timer?.invalidate()
+    }
+    
     /*
      支持的设备方向
      portrait: 竖屏   肖像
@@ -67,6 +77,27 @@ class MainTabBarController: UITabBarController {
     }()
 
 }
+
+extension MainTabBarController {
+    //定义时钟
+    fileprivate func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    ///中出发方法
+    @objc fileprivate func updateTimer() {
+        //测试未读数量
+        NetManager.shareInstance.unreadCount { (count) in
+            
+            print("检测到\(count)条")
+            
+            //设置 首页的 tabBarItem 的 badgeNumber
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+        }
+    }
+}
+
 
 // extension 类似于OC中的分类, 在Swift中还可以用来切分代码块
 //可以把相近空能的函数, 放在一个extension钟
@@ -189,6 +220,7 @@ extension MainTabBarController {
 
         
     }
+    
     
 }
 
