@@ -19,6 +19,10 @@ enum HTTPMethod {
 //网络管理工具
 class NetManager: AFHTTPSessionManager {
     
+    //访问令牌, 所有网络请求都基于次令牌(登录除外)
+    var accessToken: String? = "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"
+    
+    
     //单例  静态区/常量/闭包/
     //在第一次访问时执行闭包,并且将结果保存在sharedManager中
 //    static let sharedManager = NetManager()
@@ -32,42 +36,7 @@ class NetManager: AFHTTPSessionManager {
         tool.requestSerializer.timeoutInterval = 10
         return tool
     }()
-    
-    /// 封装AFN的GET/POST请求
-    ///
-    /// - Parameters:
-    ///   - requestType: HTTP请求格式
-    ///   - url: URLString
-    ///   - params: 参数字典
-    ///   - success: 成功时候的回调
-    ///   - failure: 失败时的回调
-//    func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any], success: @escaping([String : Any]?) ->(),failure: @escaping( _ error : Error?) -> ()){
-//        //成功
-//        let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
-//            success(responseObj as? [String : Any])
-//        }
-//        
-//        //失败
-//        let failureBlock = {(task : URLSessionDataTask?,error:Error) in
-//            failure(error)
-//        }
-//        
-//        //GET
-//        if requestType == .GET {
-//            get(url, parameters: params, progress: nil, success: successBlock, failure: failureBlock)
-//            
-//        }
-//        
-//        //POST
-//        if requestType == .POST {
-//            post(url, parameters: params, progress: nil, success: successBlock, failure: failureBlock)
-//
-//        }
-//    }
-    
-    
-    
-    
+
     /// 修改后的网络请求
     ///
     /// - Parameters:
@@ -75,7 +44,7 @@ class NetManager: AFHTTPSessionManager {
     ///   - url: URLString
     ///   - params: 请求参数
     ///   - completionHandler: data和error
-    func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any], completionHandler: @escaping([String : Any]?, _ error : Error?) ->()){
+    func request(requestType: HTTPMethod = .GET, url : String, params: [String : Any]?, completionHandler: @escaping([String : Any]?, _ error : Error?) ->()){
         //成功
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
             completionHandler(responseObj as? [String : Any], nil)
@@ -99,6 +68,38 @@ class NetManager: AFHTTPSessionManager {
             
         }
     }
+    
+    
+    
+    ///专门负责拼接 token 的网络请求方法  判断token是否存在
+    func tokenRequest(requestType: HTTPMethod = .GET, url : String, params: [String : Any]?, completionHandler: @escaping([String : Any]?, _ error : Error?) ->()) {
+        //处理token字典
+        //0. 判断token是否为nil, 为nil直接返回
+        guard let token = accessToken else {
+            print("没有token!需要登录")
+            
+            return
+        }
+        
+        //处理真正的token
+        //1. 判断参数字典是否存在, 如果为nil应该新建一个字典
+        var params = params
+        
+        if params == nil {
+            //实例化字典
+            params = [String: AnyObject]()
+        }
+        
+        //2. 这是参数字典 代码在此处一定有值
+        params!["access_token"] = token
+        
+        
+        //调用request发起真正的网络请求方法
+        request(url: url, params: params, completionHandler: completionHandler)
+        
+    }
+    
+    
 }
 
 
