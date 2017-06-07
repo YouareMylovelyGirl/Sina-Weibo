@@ -94,6 +94,9 @@ extension MainTabBarController {
             //设置 首页的 tabBarItem 的 badgeNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
             
+            //设置 APP的badgeNumber, 从iOS8.0之后, 要用户授权之后才能够显示
+            UIApplication.shared.applicationIconBadgeNumber = count
+            
         }
     }
 }

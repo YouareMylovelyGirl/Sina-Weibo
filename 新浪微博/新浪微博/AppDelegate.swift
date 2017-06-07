@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+//iOS 10推出用户提醒
+import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,10 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
 
-       
         
+        //最新用户提示 是检测设备版本, 如果是10.0 以上
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .carPlay]) { (success, error) in
+                print("授权" + (success ? "成功" : "失败")
+            )}
+        } else {
+            //取得用户授权显示通知"上方的提示条/ 声音/ BadgeNumber"  过期方法 10.0 一下
+                let notifySetting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(notifySetting)
+        }
         
+
         //设置启动
         window = UIWindow()
         window?.backgroundColor = UIColor.white
