@@ -136,6 +136,9 @@ extension BaseViewController {
             //设置内容缩进  tabbar 的默认高度是49
             tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 49, right: 0)
             
+            //修改指示器的缩进 (上下滑动条)  - 强行解包是为了拿到必有的inset
+            tableView?.scrollIndicatorInsets = tableView!.contentInset
+            
             //设置刷新控件
             //1. 实例化控件
             refreshControl = UIRefreshControl()
@@ -227,7 +230,12 @@ extension BaseViewController {
     
     //登录成功发出通知
     @objc fileprivate func loginSuccess(n: Notification) {
-        print("登录成功\(n)")
+//        print("登录成功\(n)")
+        
+        //登录前左边是注册, 右边是登录
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
+        
         //更新UI => 将访客视图替换为表格视图
         // 需要重新执行设置View
         //在访问view的getter时, 如果view == nil 会调用 loadView -> viewDidLoad
