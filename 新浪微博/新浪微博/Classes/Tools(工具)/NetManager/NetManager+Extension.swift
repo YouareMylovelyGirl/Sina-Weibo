@@ -37,7 +37,7 @@ extension NetManager {
     
     ///返回微博的未读数量
     func unreadCount(completionHandler:@escaping (_ count: Int)->()) {
-        guard let uid = uid else { return  }
+        guard let uid = userAccount.uid else { return  }
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
         let params = ["uid": uid]
         
@@ -62,7 +62,12 @@ extension NetManager {
         
         //发起网络请求
         request(requestType: .POST, url: urlString, params: params) { (data, error) in
-            print(data)
+            //直接用字典设置 userAccount属性
+            self.userAccount.yy_modelSet(with: (data as [String: AnyObject]?) ?? [:])
+            print(self.userAccount)
+            
+            //保存模型
+            self.userAccount.saceAccount()
         }
         
     }
