@@ -43,9 +43,21 @@ class UserAccount: NSObject {
             return
         }
         //2. 使用字典设置属性'
-        yy_modelSet(with: dict ?? [:])
+//        yy_modelSet(with: dict ?? [:])
         
         print("从沙盒加载用户信息\(self)")
+        
+        //3. 判断token是否过期
+        if expirseDate?.compare(Date()) != .orderedDescending {
+            print("账户过期了")
+            //清空token
+            access_token = nil
+            uid = nil
+            
+            //删除账户文件
+            _ = try? FileManager.default.removeItem(atPath: filePath)
+        }
+        print("账户正常\(self)")
     }
     
     /*
