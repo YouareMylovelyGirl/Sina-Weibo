@@ -7,6 +7,9 @@
 //
 
 import UIKit
+
+private let accountFile = "useraccount.json"
+
 //用户信息
 class UserAccount: NSObject {
     //访问令牌
@@ -27,6 +30,22 @@ class UserAccount: NSObject {
     
     override var description: String {
         return yy_modelDescription()
+    }
+    
+    
+    override init() {
+        super.init()
+        //从磁盘加载保存的字典 -> 字典
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let filePath = (docDir as NSString).appendingPathComponent(accountFile as String)
+        guard let data = NSData(contentsOfFile: filePath),
+        let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String: AnyObject] else {
+            return
+        }
+        //2. 使用字典设置属性'
+        yy_modelSet(with: dict ?? [:])
+        
+        print("从沙盒加载用户信息\(self)")
     }
     
     /*
@@ -52,7 +71,7 @@ class UserAccount: NSObject {
         
 //        let fileName = "useraccount.json"
         
-        let filePath = (docDir as NSString).appendingPathComponent("useraccount.json")
+        let filePath = (docDir as NSString).appendingPathComponent(accountFile as String)
         
         (data as NSData).write(toFile: filePath, atomically: true)
         
