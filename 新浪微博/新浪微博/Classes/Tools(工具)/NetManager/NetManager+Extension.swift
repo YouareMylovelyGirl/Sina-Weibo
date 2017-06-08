@@ -47,5 +47,24 @@ extension NetManager {
             completionHandler(count ?? 0)
         }
     }
-    
+ 
+}
+//MARK: - OAuth相关方法
+extension NetManager {
+    //加载accessToken
+    func loadAccessToken(code: String) {
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        let params = ["client_id": APPKey,
+                      "client_secret": APPSecret,
+                      "grant_type": "authorization_code",
+                      "code": code,
+                      "redirect_uri": RedirectURI]
+        
+        //发起网络请求
+        request(requestType: .POST, url: urlString, params: params) { (data, error) in
+            print(data)
+        }
+        
+    }
+
 }

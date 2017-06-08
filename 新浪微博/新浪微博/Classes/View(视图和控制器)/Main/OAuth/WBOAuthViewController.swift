@@ -115,6 +115,9 @@ extension WBOAuthViewController: UIWebViewDelegate {
         
         print("获取授权码--\(String(describing: code))")
         
+        //4. 使用授权码换取accessToken
+        NetManager.shareInstance.loadAccessToken(code: code)
+        
 //        print("加载请求--\(String(describing: request.url?.absoluteString))")
 //        //query 就是url中 '?'后面的部分
 //        print("加载请求--\(String(describing: request.url?.query))")

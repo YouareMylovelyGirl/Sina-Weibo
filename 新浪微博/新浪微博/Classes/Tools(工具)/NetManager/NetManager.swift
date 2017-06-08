@@ -42,6 +42,7 @@ class NetManager: AFHTTPSessionManager {
         tool.requestSerializer = AFHTTPRequestSerializer()
         tool.responseSerializer = AFJSONResponseSerializer()
         tool.responseSerializer.acceptableContentTypes?.insert("text/html")
+        tool.responseSerializer.acceptableContentTypes?.insert("text/plain")
         tool.requestSerializer.timeoutInterval = 10
         return tool
     }()
