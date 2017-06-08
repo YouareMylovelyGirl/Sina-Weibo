@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController {
         //定义时钟
         setupTimer()
         
-        //设置代理
+        //设置代理   将自己设置为自己的代理
         delegate = self as UITabBarControllerDelegate
         
         //注册通知
@@ -61,6 +61,8 @@ class MainTabBarController: UITabBarController {
     
     @objc fileprivate func userLogin(n: Notification) {
         print("用户通知\(n)")
+        let nav = UINavigationController(rootViewController: WBOAuthViewController())
+        present(nav, animated: true, completion: nil)
     }
     
     

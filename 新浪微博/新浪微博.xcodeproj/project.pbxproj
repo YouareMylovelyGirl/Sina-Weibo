@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A02791EE5510200425C64 /* AppDelegate.swift */; };
 		A45A02811EE5510200425C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A02801EE5510200425C64 /* Assets.xcassets */; };
 		A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A029D1EE557C400425C64 /* DiscoverController.swift */; };
@@ -34,6 +35,7 @@
 		0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F4DA23D01FDC9FED8398B9 /* Pods-新浪微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.debug.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.debug.xcconfig"; sourceTree = "<group>"; };
 		6F31289FA50014B34F1A21B8 /* Pods-新浪微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.release.xcconfig"; sourceTree = "<group>"; };
+		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A02791EE5510200425C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45A02801EE5510200425C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 				0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A43C40631EE8C1560076EEEE /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		A45A026D1EE5510200425C64 = {
@@ -167,6 +177,7 @@
 		A45A02911EE556E400425C64 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A43C40631EE8C1560076EEEE /* OAuth */,
 				A48FD9661EE665E600925D89 /* 主控制器 */,
 				A48FD9651EE6658F00925D89 /* VisitorView */,
 				A45A02AA1EE57A9A00425C64 /* 测试 */,
@@ -394,6 +405,7 @@
 				A4D9F8921EE7EA8300778047 /* StatusItem.swift in Sources */,
 				A45A02A41EE557EE00425C64 /* ProfileController.swift in Sources */,
 				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
+				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
