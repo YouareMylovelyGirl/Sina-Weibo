@@ -19,17 +19,11 @@ enum HTTPMethod {
 //网络管理工具
 class NetManager: AFHTTPSessionManager {
     
-    //访问令牌, 所有网络请求都基于次令牌(登录除外)
-    //访问令牌有时限, token是有时限的, 默认用户是三天
-    //token过期之后 -> 状态码是403
-//    var accessToken: String? = "2.00UCb9cD0VJ8eC0a8a9bbdf5S6IHwC"
-    var accessToken: String?// = "2.00UCb9cDnblSoB1a590c671703nzfT"
-    
-    var uid: String? = "5365823342"
-    
+    //用户账户的懒加载属性
+    lazy var userAccount = UserAccount()
     //用户登录标记[计算型属性]
     var userLogon: Bool {
-        return accessToken != nil
+        return userAccount.access_token != nil
     }
     
     //单例  静态区/常量/闭包/
@@ -100,7 +94,7 @@ class NetManager: AFHTTPSessionManager {
     func tokenRequest(requestType: HTTPMethod = .GET, url : String, params: [String : Any]?, completionHandler: @escaping([String : Any]?, _ error : Error?) ->()) {
         //处理token字典
         //0. 判断token是否为nil, 为nil直接返回
-        guard let token = accessToken else {
+        guard let token = userAccount.access_token else {
             print("没有token!需要登录")
             //FIXME: 发送通知提示用户登录
             return
