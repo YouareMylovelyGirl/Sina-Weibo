@@ -10,12 +10,34 @@ import UIKit
 
 class TitleButton: UIButton {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    //重载构造函数
+    //如果title是nil, 就显示首页
+    //如果不为niu, 就显示title 和 箭头头像
+    init(title: String?) {
+        super.init(frame: CGRect())
+        
+        //1. 判断title是否为nil
+        if title == nil {
+            setTitle("首页", for: .normal)
+        } else {
+            setTitle(title!, for: .normal)
+            
+            setImage(UIImage.init(named: "navigationbar_arrow_down"), for: .normal)
+            setImage(UIImage.init(named: "navigationbar_arrow_up"), for: .selected)
+        }
+        
+        //2. 设置字体和颜色
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        setTitleColor(UIColor.darkGray, for: .normal)
+        setTitleColor(UIColor.black, for: .selected)
+        
+        sizeToFit()
+        
+        
     }
-    */
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }
