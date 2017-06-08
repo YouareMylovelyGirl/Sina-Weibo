@@ -73,18 +73,51 @@ extension NetManager {
             self.userAccount.yy_modelSet(with: (data as [String: AnyObject]?) ?? [:])
             print(self.userAccount)
             
-            //保存模型
-            self.userAccount.saceAccount()
             
-            //完成回调
-            if error == nil {
-                completionHandler(true)
-            } else {
-                completionHandler(false)
-            }
+            
+            //加载用户信息
+            self.loadUserInfo(completionHandler: { (dict) in
+                
+                //使用用户信息字典设置用户账户信息, 设置昵称和头像地址
+                self.userAccount.yy_modelSet(with: dict)
+                
+                //保存模型
+                self.userAccount.saceAccount()
+                
+                print(self.userAccount)
+                
+                //等用户信息加载完成后再  完成回调
+                if error == nil {
+                    completionHandler(true)
+                } else {
+                    completionHandler(false)
+                }
+            })
+            
+            
     
         }
         
     }
 
+}
+
+extension NetManager {
+    ///加载当前用户信息 - 用户登录后立即执行
+    func loadUserInfo(completionHandler:@escaping (_ dict: [String: AnyObject])->()) {
+        
+        guard let uid = userAccount.uid else {
+            return
+        }
+        
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid": uid]
+        
+        //发起网络请求
+        tokenRequest(url: urlString, params: params) { (data, error) in
+            completionHandler(data as [String : AnyObject]? ?? [:])
+        }
+        
+        
+    }
 }

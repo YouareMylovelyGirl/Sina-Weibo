@@ -125,6 +125,7 @@ extension WBOAuthViewController: UIWebViewDelegate {
                 //下一 步做什么, 跳转界面, 如何跳转 : 通过通知来跳转, 发送登录成功消息
                 //发送通知不管有没有监听者
                 //1.发送登录成功通知
+                
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserLoginSuccessNotification), object: nil)
                 //2. 关闭窗口
                 self.closeLoginView()

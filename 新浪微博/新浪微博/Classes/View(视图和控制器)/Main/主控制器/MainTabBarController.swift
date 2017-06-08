@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 //主控制器
 class MainTabBarController: UITabBarController {
 
@@ -61,8 +62,28 @@ class MainTabBarController: UITabBarController {
     
     @objc fileprivate func userLogin(n: Notification) {
         print("用户通知\(n)")
-        let nav = UINavigationController(rootViewController: WBOAuthViewController())
-        present(nav, animated: true, completion: nil)
+        
+        var when = DispatchTime.now()
+        
+        //判断n 的 object 如果有值,提示用户重新登录 
+        if n.object != nil {
+            
+            //设置指示器的简便样式
+            SVProgressHUD.setDefaultMaskType(.black)
+            SVProgressHUD.showInfo(withStatus: "用户登录已超时, 需要重新登录")
+            
+            // 修改延时
+            when = DispatchTime.now() + 1
+        }
+        
+        //利用GCD延迟加载以下代码
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            let nav = UINavigationController(rootViewController: WBOAuthViewController())
+            self.present(nav, animated: true, completion: nil)
+        }
+        
+        
     }
     
     

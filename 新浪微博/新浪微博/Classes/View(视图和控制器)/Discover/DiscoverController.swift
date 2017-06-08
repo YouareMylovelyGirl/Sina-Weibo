@@ -13,7 +13,7 @@ class DiscoverController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        NetManager.shareInstance.userAccount.access_token = "2.00UCb9cDnblSoB85b03aa45f5NfM6"
     }
 
     override func didReceiveMemoryWarning() {
