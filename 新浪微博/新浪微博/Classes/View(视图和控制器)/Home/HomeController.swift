@@ -85,15 +85,11 @@ extension HomeController {
     //设置导航栏标题
     fileprivate func setupNavTitle() {
         
-        let button = UIButton(type: .custom)
-        button.setTitle("你好", for: .normal)
-        button.setTitleColor(UIColor.darkGray, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        button.setTitleColor(UIColor.black, for: .highlighted)
-        button.setImage(UIImage.init(named: "navigationbar_arrow_down"), for: .normal)
-        button.setImage(UIImage.init(named: "navigationbar_arrow_up"), for: .selected)
-        button.sizeToFit()
-        button.addTarget(self, action: #selector(clickTitleButton), for: .touchUpInside)
+        let title = NetManager.shareInstance.userAccount.screen_name
+        //指定构造函数一定有值
+        let button = TitleButton(title: title)
+        //点击按钮的事件方法
+        button.addTarget(self, action: #selector(clickTitleButton(btn:)), for: .touchUpInside)
         navItem.titleView = button
     }
     
