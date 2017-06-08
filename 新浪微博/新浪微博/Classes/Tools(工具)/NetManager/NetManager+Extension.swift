@@ -35,6 +35,7 @@ extension NetManager {
         
     }
     
+    //定时刷新不需要提示失败
     ///返回微博的未读数量
     func unreadCount(completionHandler:@escaping (_ count: Int)->()) {
         guard let uid = userAccount.uid else { return  }
@@ -52,7 +53,13 @@ extension NetManager {
 //MARK: - OAuth相关方法
 extension NetManager {
     //加载accessToken
-    func loadAccessToken(code: String) {
+    
+    /// 加载AccessToken
+    ///
+    /// - Parameters:
+    ///   - code: 授权码
+    ///   - completionHandler: 完成回调
+    func loadAccessToken(code: String, completionHandler:@escaping (_ isSuccess: Bool)->()) {
         let urlString = "https://api.weibo.com/oauth2/access_token"
         let params = ["client_id": APPKey,
                       "client_secret": APPSecret,
@@ -68,6 +75,14 @@ extension NetManager {
             
             //保存模型
             self.userAccount.saceAccount()
+            
+            //完成回调
+            if error == nil {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+    
         }
         
     }

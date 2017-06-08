@@ -47,7 +47,13 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         NetManager.shareInstance.userLogon ? loadData() : ()
-        
+        //注册登录成功通知
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(rawValue: UserLoginSuccessNotification), object: nil)
+    }
+    
+    deinit {
+        //注册完了通知以后第一件事情就是在这里销毁通知
+        NotificationCenter.default.removeObserver(self)
     }
     
     //didSet: 重写set方法
@@ -76,7 +82,7 @@ extension BaseViewController {
         setupTableView()
         
         //随机颜色
-        view.backgroundColor = UIColor.init().randomColor
+        view.backgroundColor = UIColor.white
         
         //加载导航控制器
         setupNavigationBar()
@@ -217,5 +223,18 @@ extension BaseViewController {
     
     @objc fileprivate func register() {
         print("用户注册")
+    }
+    
+    //登录成功发出通知
+    @objc fileprivate func loginSuccess(n: Notification) {
+        print("登录成功\(n)")
+        //更新UI => 将访客视图替换为表格视图
+        // 需要重新执行设置View
+        //在访问view的getter时, 如果view == nil 会调用 loadView -> viewDidLoad
+        view = nil
+        
+        //注销通知 -> 重新执行, viewDidLoad会再次注册! 避免通知被重复注册
+        NotificationCenter.default.removeObserver(self)
+        
     }
 }
