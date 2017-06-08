@@ -79,11 +79,11 @@ class StatusListViewModel {
                 completionHandler(data, nil, false)
                 
             } else {
-                
+                //3. 这里很定有值, 返回data
+                completionHandler(data, nil, true)
             }
             
-            //3. 这里很定有值, 返回data
-            completionHandler(data, nil, true)
+            
         }
     }
 }
