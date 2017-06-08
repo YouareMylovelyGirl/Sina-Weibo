@@ -67,8 +67,9 @@ class NetManager: AFHTTPSessionManager {
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 print("Token过期了")
                 
-                //FIXME: 发送通知, 提示用户在此登录(本方法不知道被谁调用, 谁接收到通知谁处理)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserShouldLoginNotification), object: nil)
+                // 发送通知, 提示用户在此登录(本方法不知道被谁调用, 谁接收到通知谁处理)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserShouldLoginNotification), object: "bad token")
+                
             }
             
             
@@ -93,10 +94,12 @@ class NetManager: AFHTTPSessionManager {
     ///专门负责拼接 token 的网络请求方法  判断token是否存在
     func tokenRequest(requestType: HTTPMethod = .GET, url : String, params: [String : Any]?, completionHandler: @escaping([String : Any]?, _ error : Error?) ->()) {
         //处理token字典
-        //0. 判断token是否为nil, 为nil直接返回
+        //0. 判断token是否为nil, 为nil直接返回, 程序执行过程中, 一般token不会为nil
         guard let token = userAccount.access_token else {
             print("没有token!需要登录")
-            //FIXME: 发送通知提示用户登录
+            //发送通知提示用户登录
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserShouldLoginNotification), object: nil)
+            
             return
         }
         
