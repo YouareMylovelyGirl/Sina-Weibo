@@ -77,6 +77,29 @@ extension HomeController {
 
         //这里需要先注册原形cell
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        
+        setupNavTitle()
+    
+    }
+    
+    //设置导航栏标题
+    fileprivate func setupNavTitle() {
+        
+        let button = UIButton(type: .custom)
+        button.setTitle("你好", for: .normal)
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        button.setTitleColor(UIColor.black, for: .highlighted)
+        button.setImage(UIImage.init(named: "navigationbar_arrow_down"), for: .normal)
+        button.setImage(UIImage.init(named: "navigationbar_arrow_up"), for: .selected)
+        button.sizeToFit()
+        button.addTarget(self, action: #selector(clickTitleButton), for: .touchUpInside)
+        navItem.titleView = button
+    }
+    
+    @objc fileprivate func clickTitleButton(btn: UIButton) {
+        //设置选中状态
+        btn.isSelected = !btn.isSelected
     }
     
     

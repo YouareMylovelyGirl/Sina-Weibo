@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
+		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
 		A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A02791EE5510200425C64 /* AppDelegate.swift */; };
 		A45A02811EE5510200425C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A02801EE5510200425C64 /* Assets.xcassets */; };
 		A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A029D1EE557C400425C64 /* DiscoverController.swift */; };
@@ -38,6 +39,7 @@
 		6F31289FA50014B34F1A21B8 /* Pods-新浪微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.release.xcconfig"; sourceTree = "<group>"; };
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A02791EE5510200425C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45A02801EE5510200425C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 				A43C40671EE9013E0076EEEE /* UserAccount.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A43C40691EE96BC00076EEEE /* TitleButton */ = {
+			isa = PBXGroup;
+			children = (
+				A43C406A1EE96BD80076EEEE /* TitleButton.swift */,
+			);
+			path = TitleButton;
 			sourceTree = "<group>";
 		};
 		A45A026D1EE5510200425C64 = {
@@ -179,6 +189,7 @@
 		A45A02901EE556E400425C64 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A43C40691EE96BC00076EEEE /* TitleButton */,
 				A45A029F1EE557D500425C64 /* HomeController.swift */,
 			);
 			path = Home;
@@ -405,6 +416,7 @@
 				A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */,
 				A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */,
 				A48FD96B1EE665E600925D89 /* MainNavigationController.swift in Sources */,
+				A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */,
 				A45A02A21EE557E400425C64 /* MessageController.swift in Sources */,
 				A4D9F8961EE857A100778047 /* WeiBoCommon.swift in Sources */,
 				A45A02AE1EE5B13400425C64 /* UIBarButtonItem+Extension.swift in Sources */,
