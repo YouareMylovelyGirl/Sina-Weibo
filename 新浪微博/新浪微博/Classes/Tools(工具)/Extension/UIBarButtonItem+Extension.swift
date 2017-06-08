@@ -29,8 +29,8 @@ extension UIBarButtonItem {
         btn.setTitleColor(UIColor.orange, for: .highlighted)
         
         if isBack {
-            let imageNormal = "btn_nav_back"
-            let imageLight = "btn_nav_back_click"
+            let imageNormal = "navigationbar_back_withtext"
+            let imageLight = "navigationbar_back_withtext_highlighted"
             btn.setImage(UIImage.init(named: imageNormal), for: .normal)
             btn.setImage(UIImage.init(named: imageLight), for: .highlighted)
         }

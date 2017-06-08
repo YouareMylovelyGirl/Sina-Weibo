@@ -84,6 +84,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A43802171EEA0D3500913232 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		A43C40631EE8C1560076EEEE /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +205,7 @@
 		A45A02911EE556E400425C64 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A43802171EEA0D3500913232 /* NewFeature */,
 				A43C40631EE8C1560076EEEE /* OAuth */,
 				A48FD9661EE665E600925D89 /* 主控制器 */,
 				A48FD9651EE6658F00925D89 /* VisitorView */,

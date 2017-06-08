@@ -47,7 +47,7 @@ class UserAccount: NSObject {
             return
         }
         //2. 使用字典设置属性'
-//        yy_modelSet(with: dict ?? [:])
+        yy_modelSet(with: dict ?? [:])
         
         print("从沙盒加载用户信息\(self)")
         

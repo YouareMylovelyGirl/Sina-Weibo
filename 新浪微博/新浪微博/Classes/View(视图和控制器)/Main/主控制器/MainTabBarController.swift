@@ -125,27 +125,40 @@ extension MainTabBarController: UITabBarControllerDelegate {
     ///   - tabBarController: tabBarController
     ///   - viewController: 目标控制器
     /// - Returns: 是否切换到目标控制器
+    
+    //////:::这里尤其注意只有再点击了 首页的时候
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         print("将要切换到 \(viewController)")
         
-        //1> 获取控制器在数组中的索引, 这个是应用了NSarray的 indexof 方法, 获取控制器所在的索引值
-        let index = (childViewControllers as NSArray).index(of: viewController)
-        //2> 判断当前索引是首页, 同时 index 也是首页, 重复点击首页的按钮
-        if selectedIndex == 0 && index == selectedIndex {
-            print("点击首页")
-        }
-        //3> 让表格滚动到顶部
-        //a) 获取到控制器 一开始获取到的是导航控制器, 需要获取跟控制器就得从导航控制器中重新获取
-        let nav = childViewControllers[0] as! UINavigationController
-        //从导航控制器中获取跟控制器
-        let vc = nav.childViewControllers[0] as! HomeController
-        //这是偏移, 滚动到顶部
-        vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
         
-        //4> 刷新表格 如果直接调用loadData 就会出现胡乱加载的问题
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { 
-            vc.loadData()
+        
+        
+        
+        //找死了这个bug.........
+        //FIXME: 这里如果一开始不是展示内容的话点击 item时候会出现bug , 直接弹出控制器, 所以这里要先进行一下判断是否已经登陆了, 如果没有登录, 也就没有必要进行刷新了, 如果这里需要展示内容, 那就把这个用户是否登录的判断删除
+        if NetManager.shareInstance.userLogon {
+            //1> 获取控制器在数组中的索引, 这个是应用了NSarray的 indexof 方法, 获取控制器所在的索引值
+            let index = (childViewControllers as NSArray).index(of: viewController)
+            //2> 判断当前索引是首页, 同时 index 也是首页, 重复点击首页的按钮
+            if selectedIndex == 0 && index == selectedIndex {
+                print("点击首页")
+                //3> 让表格滚动到顶部
+                //a) 获取到控制器 一开始获取到的是导航控制器, 需要获取跟控制器就得从导航控制器中重新获取
+                let nav = childViewControllers[0] as! UINavigationController
+                //从导航控制器中获取跟控制器
+                let vc = nav.childViewControllers[0] as! HomeController
+                //这是偏移, 滚动到顶部
+                vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+                
+                //4> 刷新表格 如果直接调用loadData 就会出现胡乱加载的问题
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    vc.loadData()
+                }
+            }
+
         }
+        
+        
         
         //判断目标控制器是否是UIViewController, 如果是的话就不允许点击
         return !viewController.isMember(of: UIViewController.self)

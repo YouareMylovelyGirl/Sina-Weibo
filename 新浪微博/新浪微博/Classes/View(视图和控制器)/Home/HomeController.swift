@@ -31,19 +31,26 @@ class HomeController: BaseViewController {
     //加载数据
     override func loadData() {
         
+        refreshControl?.beginRefreshing()
+        
         print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.last?.text))")
-        listViewModel.loadStatus(pullUp: isPullup) { (data, error, shouldRefredh) in
-            print("加载数据结束")
-            //结束刷新控件
-            self.refreshControl?.endRefreshing()
-            //恢复上拉刷新标记
-            self.isPullup = false
-            
-            //刷新表格, 如果能够上啦刷新再去刷新
-            if shouldRefredh {
-                self.tableView?.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { 
+            self.listViewModel.loadStatus(pullUp: self.isPullup) { (data, error, shouldRefredh) in
+                print("加载数据结束")
+                //结束刷新控件
+                self.refreshControl?.endRefreshing()
+                //恢复上拉刷新标记
+                self.isPullup = false
+                
+                //刷新表格, 如果能够上啦刷新再去刷新
+                if shouldRefredh {
+                    self.tableView?.reloadData()
+                }
             }
-        }  
+        }
+        
+        
     }
 }
 
@@ -89,7 +96,7 @@ extension HomeController {
         //指定构造函数一定有值
         let button = TitleButton(title: title)
         //点击按钮的事件方法
-        button.addTarget(self, action: #selector(clickTitleButton(btn:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clickTitleButton), for: .touchUpInside)
         navItem.titleView = button
     }
     
