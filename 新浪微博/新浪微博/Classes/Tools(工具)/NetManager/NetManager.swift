@@ -73,6 +73,7 @@ class NetManager: AFHTTPSessionManager {
                 print("Token过期了")
                 
                 //FIXME: 发送通知, 提示用户在此登录(本方法不知道被谁调用, 谁接收到通知谁处理)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserShouldLoginNotification), object: nil)
             }
             
             
