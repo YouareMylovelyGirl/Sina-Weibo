@@ -210,7 +210,12 @@ extension MainTabBarController: UITabBarControllerDelegate {
                 //4> 刷新表格 如果直接调用loadData 就会出现胡乱加载的问题
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     vc.loadData()
+                    
                 }
+                
+                //5> 清除tabbaritem的badgeNumber
+                vc.tabBarItem.badgeValue = nil
+                UIApplication.shared.applicationIconBadgeNumber = 0
             }
 
         }

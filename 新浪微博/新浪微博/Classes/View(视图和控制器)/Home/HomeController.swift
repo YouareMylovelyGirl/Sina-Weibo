@@ -33,7 +33,7 @@ class HomeController: BaseViewController {
         
         refreshControl?.beginRefreshing()
         
-        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.last?.text))")
+        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.first?.text))")
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { 
             self.listViewModel.loadStatus(pullUp: self.isPullup) { (data, error, shouldRefredh) in
