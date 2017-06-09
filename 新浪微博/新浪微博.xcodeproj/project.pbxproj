@@ -11,6 +11,8 @@
 		A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438021A1EEA0F7600913232 /* NewFeatureView.swift */; };
 		A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021C1EEA1AE300913232 /* WelcomeView.xib */; };
 		A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021E1EEA2DE700913232 /* NewFeatureView.xib */; };
+		A43802441EEAB0D100913232 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43802431EEAB0D100913232 /* StatusCell.swift */; };
+		A43802461EEAB0E800913232 /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43802451EEAB0E800913232 /* StatusNormalCell.xib */; };
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
@@ -45,6 +47,8 @@
 		A438021A1EEA0F7600913232 /* NewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
 		A438021C1EEA1AE300913232 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 		A438021E1EEA2DE700913232 /* NewFeatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFeatureView.xib; sourceTree = "<group>"; };
+		A43802431EEAB0D100913232 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		A43802451EEAB0E800913232 /* StatusNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
@@ -101,6 +105,15 @@
 				A438021E1EEA2DE700913232 /* NewFeatureView.xib */,
 			);
 			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		A43802421EEAB0BC00913232 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				A43802431EEAB0D100913232 /* StatusCell.swift */,
+				A43802451EEAB0E800913232 /* StatusNormalCell.xib */,
+			);
+			path = StatusCell;
 			sourceTree = "<group>";
 		};
 		A43C40631EE8C1560076EEEE /* OAuth */ = {
@@ -208,6 +221,7 @@
 		A45A02901EE556E400425C64 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A43802421EEAB0BC00913232 /* StatusCell */,
 				A43C40691EE96BC00076EEEE /* TitleButton */,
 				A45A029F1EE557D500425C64 /* HomeController.swift */,
 			);
@@ -373,6 +387,7 @@
 				A48FD9701EE6CAC700925D89 /* Main.json in Resources */,
 				A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */,
 				A45A02811EE5510200425C64 /* Assets.xcassets in Resources */,
+				A43802461EEAB0E800913232 /* StatusNormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +469,7 @@
 				A45A02A41EE557EE00425C64 /* ProfileController.swift in Sources */,
 				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
 				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
+				A43802441EEAB0D100913232 /* StatusCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

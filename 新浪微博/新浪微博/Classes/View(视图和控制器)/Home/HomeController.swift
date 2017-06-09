@@ -83,8 +83,10 @@ extension HomeController {
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 16, target: self, action: #selector(showFriends))
 
         //这里需要先注册原形cell
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+//        tableView?.register(UITableViewCell.self, fosrCellReuseIdentifier: cellID)
         
+        //注册原型cell
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: cellID)
         setupNavTitle()
     
     }
