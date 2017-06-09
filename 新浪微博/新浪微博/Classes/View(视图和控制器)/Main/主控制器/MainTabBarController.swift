@@ -27,6 +27,9 @@ class MainTabBarController: UITabBarController {
         //定义时钟
         setupTimer()
         
+        //设置新特性视图
+        setupNewfeatureViews()
+        
         //设置代理   将自己设置为自己的代理
         delegate = self as UITabBarControllerDelegate
         
@@ -115,6 +118,59 @@ class MainTabBarController: UITabBarController {
     }()
 
 }
+
+
+extension MainTabBarController {
+    /*
+     关于版本号
+     在appstore每次升级应用程序, 版本号都需要增加   不能递减
+     组成 主版本号, 次版本号
+     主版本号变化: 意味着大的修改
+     次版本号: 小的修改, 某些函数参数, 和方法的使用或者参数有变化
+     修订版本号: 框架/ 程序内部bug的修订, 不会对使用者造成任何影响
+     */
+    fileprivate func setupNewfeatureViews() {
+        
+        //0. 判断是否登录
+        if !NetManager.shareInstance.userLogon {
+            
+        }
+        
+        //1. 检查版本是否更新
+        
+        //2. 如果更新, 显示新特性, 否则显示欢迎
+        let v = isNewVersion ? NewFeatureView() : WelcomeView.welcome()
+        //3. 添加视图, 在view中s 
+//        v.frame = view.bounds
+        
+        view.addSubview(v)
+    }
+    
+    //extension中可以有 计算型方法  不会占用存储空间
+    //够赞函数: 给属性分配存储空间
+    private var isNewVersion: Bool {
+        //1. 取当前的版本号
+        //可选的字典需要在后面主动加上?
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        print("当前版本" + currentVersion)
+        //2. 取保存在`Document(iTunes)`应用程序升级, 这个文件也会被保存. [应该保存在偏好设置中]
+        let documentPaths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documnetPath = documentPaths[0] as NSString
+        let filePath = documnetPath.appendingPathComponent("version")
+        
+        let sandboxVersion = (try? String(contentsOfFile: filePath)) ?? ""
+         
+        print("沙盒版本" + sandboxVersion)
+        print(filePath)
+        //3. 将当前版本保存在沙盒
+       _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
+        //4. 返回两个版本号 `是否一致`
+        
+        return currentVersion != sandboxVersion
+    }
+}
+
 
 // MARK: - UITabBarControllerDelegate
 extension MainTabBarController: UITabBarControllerDelegate {
