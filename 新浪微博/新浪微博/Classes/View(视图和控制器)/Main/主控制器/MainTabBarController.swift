@@ -167,8 +167,8 @@ extension MainTabBarController {
        _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
         //4. 返回两个版本号 `是否一致`
         
-//        return currentVersion != sandboxVersion
-        return true
+        return currentVersion != sandboxVersion
+//        return true
     }
 }
 
