@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A43802191EEA0F3200913232 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43802181EEA0F3200913232 /* WelcomeView.swift */; };
+		A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438021A1EEA0F7600913232 /* NewFeatureView.swift */; };
+		A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021C1EEA1AE300913232 /* WelcomeView.xib */; };
+		A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021E1EEA2DE700913232 /* NewFeatureView.xib */; };
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
@@ -37,6 +41,10 @@
 		0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F4DA23D01FDC9FED8398B9 /* Pods-新浪微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.debug.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.debug.xcconfig"; sourceTree = "<group>"; };
 		6F31289FA50014B34F1A21B8 /* Pods-新浪微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.release.xcconfig"; sourceTree = "<group>"; };
+		A43802181EEA0F3200913232 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A438021A1EEA0F7600913232 /* NewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
+		A438021C1EEA1AE300913232 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
+		A438021E1EEA2DE700913232 /* NewFeatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFeatureView.xib; sourceTree = "<group>"; };
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
@@ -87,6 +95,10 @@
 		A43802171EEA0D3500913232 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
+				A43802181EEA0F3200913232 /* WelcomeView.swift */,
+				A438021C1EEA1AE300913232 /* WelcomeView.xib */,
+				A438021A1EEA0F7600913232 /* NewFeatureView.swift */,
+				A438021E1EEA2DE700913232 /* NewFeatureView.xib */,
 			);
 			path = NewFeature;
 			sourceTree = "<group>";
@@ -357,7 +369,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */,
 				A48FD9701EE6CAC700925D89 /* Main.json in Resources */,
+				A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */,
 				A45A02811EE5510200425C64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,10 +444,12 @@
 				A45A02AE1EE5B13400425C64 /* UIBarButtonItem+Extension.swift in Sources */,
 				A4B856671EE7B44F007FD58F /* NetManager.swift in Sources */,
 				A48FD96E1EE6661200925D89 /* VisitorView.swift in Sources */,
+				A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */,
 				A45A02A71EE55FFF00425C64 /* Bundle+Extensions.swift in Sources */,
 				A45A02AC1EE57AA700425C64 /* DemoViewController.swift in Sources */,
 				A45A02A01EE557D500425C64 /* HomeController.swift in Sources */,
 				A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */,
+				A43802191EEA0F3200913232 /* WelcomeView.swift in Sources */,
 				A4D9F8921EE7EA8300778047 /* StatusItem.swift in Sources */,
 				A45A02A41EE557EE00425C64 /* ProfileController.swift in Sources */,
 				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
