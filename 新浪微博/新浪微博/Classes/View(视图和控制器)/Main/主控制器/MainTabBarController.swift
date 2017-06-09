@@ -139,7 +139,7 @@ extension MainTabBarController {
         //1. 检查版本是否更新
         
         //2. 如果更新, 显示新特性, 否则显示欢迎
-        let v = isNewVersion ? NewFeatureView() : WelcomeView.welcome()
+        let v = isNewVersion ? NewFeatureView.newFeature() : WelcomeView.welcome()
         //3. 添加视图, 在view中s 
 //        v.frame = view.bounds
         
@@ -167,7 +167,8 @@ extension MainTabBarController {
        _ = try? currentVersion.write(toFile: filePath, atomically: true, encoding: .utf8)
         //4. 返回两个版本号 `是否一致`
         
-        return currentVersion != sandboxVersion
+//        return currentVersion != sandboxVersion
+        return true
     }
 }
 
