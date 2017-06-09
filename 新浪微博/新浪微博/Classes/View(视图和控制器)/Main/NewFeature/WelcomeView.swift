@@ -58,6 +58,8 @@ class WelcomeView: UIView {
         
         //1. 设置头像- 如果不指定占位图像, 之前设置的图像会被清空
     iconView.sd_setImage(with: url, placeholderImage: UIImage.init(named: "avatar_default_big"))
+        
+        //如果这里设置没有作用, 需要设置约束的宽高
         //设置圆角
         iconView.layer.cornerRadius = iconView.bounds.width * 0.5
         //切图
