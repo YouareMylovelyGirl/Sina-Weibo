@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 
 //MARK: - 应用程序信息
 //应用程序ID
@@ -22,3 +24,21 @@ let RedirectURI = "http://baidu.com"
 let UserShouldLoginNotification = "UserShouldLoginNotification"
 //用户登录成功通知
 let UserLoginSuccessNotification = "UserLoginSuccessNotification"
+
+
+//MARK: - 微博配图视图内部常量
+//1. 计算配图视图的宽度
+//配图视图外侧的间距
+let StatusPictureViewOutterMargin = CGFloat(12)
+//配图视图内部图像视图的间距
+let StatusPictureViewInnerMargin = CGFloat(3)
+
+//视图的宽度
+let StatusPictureViewWidth = UIScreen.main.bounds.size.width - 2 * StatusPictureViewOutterMargin
+
+//每个Item默认的高度
+let StatusPictureItemWidth = ((StatusPictureViewWidth) - 2 * StatusPictureViewInnerMargin) / 3
+
+
+
+
