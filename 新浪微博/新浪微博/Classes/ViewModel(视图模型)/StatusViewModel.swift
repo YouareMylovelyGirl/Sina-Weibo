@@ -29,8 +29,16 @@ class StatusViewModel:CustomStringConvertible {
     
     ///会员图标
     var memberIcon: UIImage?
-    
+    ///认证类型
     var vipIcon: UIImage?
+    
+    //转发文字
+    var retweetedStr: String?
+    ///评论文字
+    var commentStr: String?
+    ///点赞文字
+    var likeStr: String?
+    
     
     
     /// 构造函数
@@ -55,6 +63,10 @@ class StatusViewModel:CustomStringConvertible {
             break
         }
         
+        //设置底部计数字符串
+        retweetedStr = countString(count: status.reposts_cout, defaultStr: "转发")
+        commentStr = countString(count: status.comments_count, defaultStr: "评论")
+        likeStr = countString(count: status.attitudes_count, defaultStr: "赞")
         
     }
  
@@ -62,4 +74,24 @@ class StatusViewModel:CustomStringConvertible {
     var description: String {
         return status.description
     }
+    
+    /// 给定一个数字, 返回对应的描述结果
+    ///
+    /// - Parameters:
+    ///   - count: 数字
+    ///   - defaultStr: 默认字符串, 转发/ 评论/ 赞
+    /// - Returns: 描述结果
+    fileprivate func countString(count: Int, defaultStr: String) -> String {
+        if count == 0 {
+            return defaultStr
+        }
+        if count < 1000 {
+            return count.description
+        }
+        
+        return String(format: "%.02f 万", Double(count) / 10000)
+    }
+    
+    
+    
 }
