@@ -64,7 +64,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiA-eO-nSJ" userLabel="底部工具栏">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiA-eO-nSJ" userLabel="底部工具栏" customClass="StatusToolBar" customModule="新浪微博" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="189" width="450" height="28"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFO-Ne-Oi0">
@@ -125,6 +125,11 @@
                             <constraint firstItem="r9l-4l-3n1" firstAttribute="centerY" secondItem="Vyl-5H-DyM" secondAttribute="centerY" id="ruH-uS-DIp"/>
                             <constraint firstAttribute="height" constant="28" id="sgZ-nQ-XgC"/>
                         </constraints>
+                        <connections>
+                            <outlet property="commentButton" destination="Vyl-5H-DyM" id="uI2-rX-LKg"/>
+                            <outlet property="likeButton" destination="lgp-Nm-QTj" id="eb3-C8-FZX"/>
+                            <outlet property="retweetedButton" destination="IFO-Ne-Oi0" id="R1E-tx-hI1"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>
@@ -159,9 +164,10 @@
                 <outlet property="sourceLabel" destination="JsC-KR-ndE" id="48Y-2G-v1P"/>
                 <outlet property="statusLabel" destination="8u7-LJ-jHM" id="RgY-2l-zd4"/>
                 <outlet property="timeLabel" destination="Rzn-5w-uCi" id="Ip4-p4-mEf"/>
+                <outlet property="toolBar" destination="QiA-eO-nSJ" id="2rO-Y2-XAA"/>
                 <outlet property="vipIconView" destination="Kq9-Cg-vfu" id="9nC-PU-bcW"/>
             </connections>
-            <point key="canvasLocation" x="-650" y="290"/>
+            <point key="canvasLocation" x="-1044" y="313"/>
         </tableViewCell>
     </objects>
     <resources>
