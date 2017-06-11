@@ -24,7 +24,7 @@ class StatusCell: UITableViewCell {
             vipIconView.image = viewModel?.vipIcon
             
             //用户图像
-            iconView.yg_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"))
+            iconView.yg_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"), isAvatar: true)
         }
     }
     
