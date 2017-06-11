@@ -15,4 +15,7 @@ class StatusPicture: NSObject {
     override var description: String {
         return yy_modelDescription()
     }
+    
+    
+    
 }
