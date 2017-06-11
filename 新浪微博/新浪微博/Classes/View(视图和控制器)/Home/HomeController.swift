@@ -62,9 +62,10 @@ extension HomeController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //1. 取cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID,for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID,for: indexPath) as! StatusCell
         //2. 设置cell
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        cell.statusLabel?.text = listViewModel.statusList[indexPath.row].text
+        
         //3. 返回cell
         return cell
     }
@@ -88,6 +89,13 @@ extension HomeController {
         //注册原型cell
         tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: cellID)
         setupNavTitle()
+        
+        // 设置行高
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 300
+        
+        // 取消分割线
+        tableView?.separatorStyle = .none
     
     }
     
