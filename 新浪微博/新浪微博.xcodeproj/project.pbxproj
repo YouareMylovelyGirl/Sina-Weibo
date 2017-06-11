@@ -14,6 +14,7 @@
 		A43802441EEAB0D100913232 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43802431EEAB0D100913232 /* StatusCell.swift */; };
 		A43802461EEAB0E800913232 /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43802451EEAB0E800913232 /* StatusNormalCell.xib */; };
 		A438A1ED1EECC7090070DF3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1EC1EECC7090070DF3D /* User.swift */; };
+		A438A1EF1EECCAC80070DF3D /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1EE1EECCAC80070DF3D /* StatusViewModel.swift */; };
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
@@ -51,6 +52,7 @@
 		A43802431EEAB0D100913232 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		A43802451EEAB0E800913232 /* StatusNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
 		A438A1EC1EECC7090070DF3D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A438A1EE1EECCAC80070DF3D /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D9F8931EE7ECBF00778047 /* StatusListViewModel.swift */,
+				A438A1EE1EECCAC80070DF3D /* StatusViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A438A1EF1EECCAC80070DF3D /* StatusViewModel.swift in Sources */,
 				A48FD96A1EE665E600925D89 /* BaseViewController.swift in Sources */,
 				A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */,
 				A45A02A91EE569A900425C64 /* UIColor+Extensions.swift in Sources */,
