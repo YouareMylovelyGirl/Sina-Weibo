@@ -25,6 +25,8 @@ class StatusCell: UITableViewCell {
             
             //用户图像
             iconView.yg_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"), isAvatar: true)
+            //底部工具栏
+            toolBar.viewModel = viewModel
         }
     }
     
@@ -42,7 +44,8 @@ class StatusCell: UITableViewCell {
     @IBOutlet weak var vipIconView: UIImageView!
     ///正文
     @IBOutlet weak var statusLabel: UILabel!
-    
+    //底部工具栏
+    @IBOutlet weak var toolBar: StatusToolBar!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -18,6 +18,12 @@ class StatusItem: NSObject {
     var text: String?
     /// 微博用户
     var user: User?
+    //转发数
+    var reposts_cout: Int = 0
+    //评论数
+    var comments_count: Int = 0
+    //点赞数
+    var attitudes_count: Int = 0
     //重写description的计算型属性
     override var description: String {
         return yy_modelDescription()
