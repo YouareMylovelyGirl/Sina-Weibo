@@ -12,9 +12,13 @@ class StatusToolBar: UIView {
     
     var viewModel: StatusViewModel? {
         didSet {
-            retweetedButton.setTitle("\(viewModel?.status.reposts_cout ?? 0)", for: .normal)
-            commentButton.setTitle("\(viewModel?.status.comments_count ?? 0)", for: .normal)
-            likeButton.setTitle("\(viewModel?.status.attitudes_count ?? 0)", for: .normal)
+//            retweetedButton.setTitle("\(viewModel?.status.reposts_cout ?? 0)", for: .normal)
+//            commentButton.setTitle("\(viewModel?.status.comments_count ?? 0)", for: .normal)
+//            likeButton.setTitle("\(viewModel?.status.attitudes_count ?? 0)", for: .normal)
+            
+            retweetedButton.setTitle(viewModel?.retweetedStr, for: .normal)
+            commentButton.setTitle(viewModel?.commentStr, for: .normal)
+            likeButton.setTitle(viewModel?.likeStr, for: .normal)
         }
     }
     
