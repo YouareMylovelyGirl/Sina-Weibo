@@ -38,6 +38,8 @@ class StatusViewModel:CustomStringConvertible {
     var commentStr: String?
     ///点赞文字
     var likeStr: String?
+    //配图视图
+    var pictureViewSize = CGSize()
     
     
     
@@ -68,6 +70,18 @@ class StatusViewModel:CustomStringConvertible {
         commentStr = countString(count: status.comments_count, defaultStr: "评论")
         likeStr = countString(count: status.attitudes_count, defaultStr: "赞")
         
+        
+        //计算配图视图大小
+        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count)
+        
+    }
+    
+    /// 计算制定数量的图片对应的配图视图大小
+    ///
+    /// - Parameter count: 配图数量
+    /// - Returns: 配图视图的大小
+    fileprivate func calcPictureViewSize(count: Int?) -> CGSize {
+        return CGSize(width: 100, height: 300)
     }
  
     
