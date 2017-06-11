@@ -51,7 +51,7 @@ class WBOAuthViewController: UIViewController {
     //点击登录按钮执行submit, 将本地的数据提交给服务器
     @objc private func autoFill() {
         //准备 js
-        let js = "document.getElementById('userId').value = '18710285537';" + "document.getElementById('passwd').value = 'personal';"
+        let js = "document.getElementById('userId').value = '';" + "document.getElementById('passwd').value = '';"
         //让webView直行js
         webView.stringByEvaluatingJavaScript(from: js)
     }
