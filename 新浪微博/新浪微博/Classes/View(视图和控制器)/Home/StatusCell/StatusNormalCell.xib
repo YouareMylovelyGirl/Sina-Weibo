@@ -56,7 +56,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_vip" translatesAutoresizingMaskIntoConstraints="NO" id="Kq9-Cg-vfu" userLabel="认证图标">
-                        <rect key="frame" x="38" y="47" width="14" height="14"/>
+                        <rect key="frame" x="34" y="43" width="14" height="14"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u7-LJ-jHM" userLabel="正文">
                         <rect key="frame" x="11" y="65" width="33" height="16"/>
@@ -70,7 +70,7 @@
                     <constraint firstItem="Rzn-5w-uCi" firstAttribute="bottom" secondItem="qzz-bK-zEl" secondAttribute="bottom" id="1VO-sf-7bn"/>
                     <constraint firstItem="8u7-LJ-jHM" firstAttribute="top" secondItem="qzz-bK-zEl" secondAttribute="bottom" constant="11" id="1bs-8I-lLw"/>
                     <constraint firstItem="8u7-LJ-jHM" firstAttribute="leading" secondItem="qzz-bK-zEl" secondAttribute="leading" id="3QS-ZS-Lo8"/>
-                    <constraint firstItem="Kq9-Cg-vfu" firstAttribute="centerX" secondItem="qzz-bK-zEl" secondAttribute="trailing" id="5yx-X1-7E7"/>
+                    <constraint firstItem="Kq9-Cg-vfu" firstAttribute="centerX" secondItem="qzz-bK-zEl" secondAttribute="trailing" constant="-4" id="5yx-X1-7E7"/>
                     <constraint firstItem="JsC-KR-ndE" firstAttribute="leading" secondItem="Rzn-5w-uCi" secondAttribute="trailing" constant="8" id="7o1-by-ofO"/>
                     <constraint firstItem="jbs-dp-Waf" firstAttribute="leading" secondItem="qzz-bK-zEl" secondAttribute="trailing" constant="11" id="7yz-H5-zok"/>
                     <constraint firstItem="t7M-p6-Va8" firstAttribute="leading" secondItem="7Ea-zb-nWy" secondAttribute="leading" id="BPR-rk-te0"/>
@@ -83,7 +83,7 @@
                     <constraint firstItem="Rzn-5w-uCi" firstAttribute="leading" secondItem="jbs-dp-Waf" secondAttribute="leading" id="fO5-PB-07o"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8u7-LJ-jHM" secondAttribute="bottom" constant="12" id="fa9-Lt-2Wx"/>
                     <constraint firstItem="qzz-bK-zEl" firstAttribute="leading" secondItem="7Ea-zb-nWy" secondAttribute="leading" constant="11" id="hU2-h2-1em"/>
-                    <constraint firstItem="Kq9-Cg-vfu" firstAttribute="centerY" secondItem="qzz-bK-zEl" secondAttribute="bottom" id="pTv-DJ-DwT"/>
+                    <constraint firstItem="Kq9-Cg-vfu" firstAttribute="centerY" secondItem="qzz-bK-zEl" secondAttribute="bottom" constant="-4" id="pTv-DJ-DwT"/>
                     <constraint firstItem="t7M-p6-Va8" firstAttribute="top" secondItem="7Ea-zb-nWy" secondAttribute="top" id="zTe-FF-BhA"/>
                 </constraints>
             </tableViewCellContentView>

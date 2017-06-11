@@ -16,7 +16,8 @@ extension UIImageView {
     /// - Parameters:
     ///   - urlString: urlString
     ///   - placeholderImage: 站位视图
-    func yg_setImage(urlString: String?, placeholderImage: UIImage?)  {
+    ///   - isAvatar: 是否回调
+    func yg_setImage(urlString: String?, placeholderImage: UIImage?, isAvatar: Bool = false)  {
         
         //处理URL
         guard let urlString = urlString,
@@ -28,8 +29,11 @@ extension UIImageView {
         
         
         //可选项只是用在 Swift, OC有时候用! 同样可以传入nil
-        sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress: nil) { (image, _, _, _) in
-            
+        sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress: nil) { [weak self] (image, _, _, _) in
+            //完成回调 - 判断是否是都像
+            if isAvatar {
+                self?.image = image?.yg_avatarImage(size: self?.bounds.size)
+            }
         }
     }
 }
