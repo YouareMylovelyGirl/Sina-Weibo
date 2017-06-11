@@ -22,7 +22,7 @@ private let maxPullupTryTimes = 3
 
 class StatusListViewModel {
     
-    lazy var statusList = [StatusItem]()
+    lazy var statusList = [StatusViewModel]()
     
     private var pullErrorTimes = 0
     
@@ -40,10 +40,10 @@ class StatusListViewModel {
         
         
         // since_id 取出数组中第一条微博的id,, 下拉刷新
-        let since_id = pullUp ? 0 : (statusList.first?.id ?? 0)
+        let since_id = pullUp ? 0 : (statusList.first?.status.id ?? 0)
         
         //上拉刷新, 取出数组中最后一条微博的id
-        let max_id = !pullUp ? 0 : (statusList.last?.id ?? 0)
+        let max_id = !pullUp ? 0 : (statusList.last?.status.id ?? 0)
         
         
         // 上啦刷新, 取出数组的最后一条微博id
@@ -54,13 +54,35 @@ class StatusListViewModel {
             
 //            print(data)
             
-            //1. 字典转模型
-            guard let array = NSArray.yy_modelArray(with: StatusItem.self, json: data ?? []) as? [StatusItem] else {
-                
-                completionHandler(nil, error, false)
-                
+            //0. 判断网络请求是否成功
+            if error != nil {
                 return
             }
+            
+            
+            //1. 字典转模型
+            //1> 定义结果可变 数组
+            var array = [StatusViewModel]()
+            
+            //2> 便利服务器返回的字典数组, 字典转模型
+            for dict in data ?? [] {
+                
+                //a) 创建微博模型 - 如果创建模型失败, 继续后续的便利
+                guard let model = StatusItem.yy_model(with: dict) else {
+                    continue
+                }
+                
+                //b) 将试图模型 添加到数组
+                array.append(StatusViewModel(model: model))
+            }
+            
+            
+//            guard let array = NSArray.yy_modelArray(with: StatusItem.self, json: data ?? []) as? [StatusItem] else {
+//                
+//                completionHandler(nil, error, false)
+//                
+//                return
+//            }
             
             print("刷新到\(array.count)条数据")
             

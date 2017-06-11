@@ -21,8 +21,7 @@ class User: NSObject {
     //会员等级
     var mbrank: Int = 0
     
-    /// 微博用户
-    var user: User?
+    
     
     override var description: String {
         return yy_modelDescription()

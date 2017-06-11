@@ -33,7 +33,7 @@ class HomeController: BaseViewController {
         
         refreshControl?.beginRefreshing()
         
-        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.first?.text))")
+//        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.first?.text))")
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { 
             self.listViewModel.loadStatus(pullUp: self.isPullup) { (data, error, shouldRefredh) in
@@ -64,7 +64,11 @@ extension HomeController {
         //1. 取cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID,for: indexPath) as! StatusCell
         //2. 设置cell
-        cell.statusLabel?.text = listViewModel.statusList[indexPath.row].text
+        let viewModel = listViewModel.statusList[indexPath.row]
+        
+        cell.viewModel = viewModel
+        
+        
         
         //3. 返回cell
         return cell

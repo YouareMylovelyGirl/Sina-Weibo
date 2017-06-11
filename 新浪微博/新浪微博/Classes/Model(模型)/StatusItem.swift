@@ -16,7 +16,8 @@ class StatusItem: NSObject {
     var id: Int64 = 0
     //微博数据内容
     var text: String?
-    
+    /// 微博用户
+    var user: User?
     //重写description的计算型属性
     override var description: String {
         return yy_modelDescription()
