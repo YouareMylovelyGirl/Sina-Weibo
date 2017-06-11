@@ -27,6 +27,10 @@ class StatusCell: UITableViewCell {
             iconView.yg_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"), isAvatar: true)
             //底部工具栏
             toolBar.viewModel = viewModel
+            
+            //测试修改配图视图的高度
+            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+            
         }
     }
     
@@ -46,6 +50,14 @@ class StatusCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     //底部工具栏
     @IBOutlet weak var toolBar: StatusToolBar!
+    //配图视图
+    @IBOutlet weak var pictureView: StatusPictureView!
+    
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

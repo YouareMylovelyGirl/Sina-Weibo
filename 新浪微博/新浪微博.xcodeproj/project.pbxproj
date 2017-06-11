@@ -18,6 +18,8 @@
 		A438A1F11EED07E20070DF3D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F01EED07E20070DF3D /* UIImageView+Extension.swift */; };
 		A438A1F31EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F21EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift */; };
 		A438A1F51EED2B1D0070DF3D /* StatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F41EED2B1D0070DF3D /* StatusToolBar.swift */; };
+		A438A1F71EED38F80070DF3D /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F61EED38F80070DF3D /* StatusPictureView.swift */; };
+		A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F81EED3E4B0070DF3D /* StatusPicture.swift */; };
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
@@ -59,6 +61,8 @@
 		A438A1F01EED07E20070DF3D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		A438A1F21EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage_AvatarImage+Extension.swift"; sourceTree = "<group>"; };
 		A438A1F41EED2B1D0070DF3D /* StatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusToolBar.swift; sourceTree = "<group>"; };
+		A438A1F61EED38F80070DF3D /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		A438A1F81EED3E4B0070DF3D /* StatusPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPicture.swift; sourceTree = "<group>"; };
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				A43802431EEAB0D100913232 /* StatusCell.swift */,
 				A43802451EEAB0E800913232 /* StatusNormalCell.xib */,
 				A438A1F41EED2B1D0070DF3D /* StatusToolBar.swift */,
+				A438A1F61EED38F80070DF3D /* StatusPictureView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			children = (
 				A4D9F8911EE7EA8300778047 /* StatusItem.swift */,
 				A438A1EC1EECC7090070DF3D /* User.swift */,
+				A438A1F81EED3E4B0070DF3D /* StatusPicture.swift */,
 			);
 			path = "Model(模型)";
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				A48FD96B1EE665E600925D89 /* MainNavigationController.swift in Sources */,
 				A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */,
 				A45A02A21EE557E400425C64 /* MessageController.swift in Sources */,
+				A438A1F71EED38F80070DF3D /* StatusPictureView.swift in Sources */,
 				A4D9F8961EE857A100778047 /* WeiBoCommon.swift in Sources */,
 				A438A1F11EED07E20070DF3D /* UIImageView+Extension.swift in Sources */,
 				A45A02AE1EE5B13400425C64 /* UIBarButtonItem+Extension.swift in Sources */,
@@ -490,6 +497,7 @@
 				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
 				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
 				A43802441EEAB0D100913232 /* StatusCell.swift in Sources */,
+				A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
