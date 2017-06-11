@@ -9,6 +9,25 @@
 import UIKit
 
 class StatusCell: UITableViewCell {
+    
+    var viewModel: StatusViewModel? {
+        didSet {
+            //微博文本
+            statusLabel?.text = viewModel?.status.text
+            //姓名
+            nameLabel.text = viewModel?.status.user?.screen_name
+            
+            //设置会员图标 - 直接获取属性, 不需要比较
+            memberIconView.image = viewModel?.memberIcon
+            
+            //认证图标
+            vipIconView.image = viewModel?.vipIcon
+            
+            //用户图像
+            iconView.yg_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"))
+        }
+    }
+    
     ///头像
     @IBOutlet weak var iconView: UIImageView!
     ///姓名
