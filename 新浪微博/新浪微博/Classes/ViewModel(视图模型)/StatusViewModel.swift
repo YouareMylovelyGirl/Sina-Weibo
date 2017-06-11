@@ -81,7 +81,19 @@ class StatusViewModel:CustomStringConvertible {
     /// - Parameter count: 配图数量
     /// - Returns: 配图视图的大小
     fileprivate func calcPictureViewSize(count: Int?) -> CGSize {
-        return CGSize(width: 100, height: 300)
+        
+        //这里使用|| 
+        if count == 0 || count == nil{
+            return CGSize()
+        }
+        
+        //2. 计算高度
+        //1> 根据count 知道行数1~9
+        let row = (count! - 1) / 3 + 1
+        //2> 根据行数算高度
+        let height = StatusPictureViewOutterMargin + CGFloat(row) * StatusPictureItemWidth + CGFloat((row - 1)) * StatusPictureViewInnerMargin
+        
+        return CGSize(width: StatusPictureViewWidth, height: height)
     }
  
     
