@@ -30,7 +30,19 @@ class StatusCell: UITableViewCell {
             
             //测试修改配图视图的高度
             pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+            //设置配图视图的URL数据
+            pictureView.urls = viewModel?.status.pic_urls
             
+            //测试4张图片
+//            if (viewModel?.status.pic_urls?.count)! > 4 {
+//                //修改数组 -> 将末尾的数据全部删除
+//                var picURLs = viewModel?.status.pic_urls!
+//                picURLs?.removeSubrange(((picURLs?.startIndex)! + 4)..<(picURLs?.endIndex)!)
+//                pictureView.urls = picURLs
+//            } else {
+//                pictureView.urls = viewModel?.status.pic_urls
+//            }
+            pictureView.urls = viewModel?.status.pic_urls
         }
     }
     
