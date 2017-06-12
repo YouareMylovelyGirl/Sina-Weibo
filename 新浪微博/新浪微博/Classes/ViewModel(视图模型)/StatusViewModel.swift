@@ -93,6 +93,18 @@ class StatusViewModel:CustomStringConvertible {
     }
     
     ///根据当前的视图模型内容计算行高
+    /*
+      缓存行高步骤
+     1. 打开XIB/ 纯代码一样, 从上相下的顺序, 依次罗列控件的高度公式
+     2. 在试图模型中, 根据公式, 定义需要的常量, 间距, 图标, 表前视图计算大小, 标签的字体
+     3. 定义变量height
+     4. 从上向下, 依次计算, 不建议跳跃, 不要省略
+     5. 计算
+     6. 在构造函数末尾计算行高
+     7, 在更新视图尺寸之后, 再次计算, 因为调整过配图视图的高度, 需要重新计算一下
+     8, 调整控制器
+     9. 取消自动行高
+     */
     func updateRowHeight()  {
         let margin: CGFloat = 12
         let iconHeight: CGFloat = 34
@@ -147,6 +159,9 @@ class StatusViewModel:CustomStringConvertible {
         
         size.height += StatusPictureViewOutterMargin
         pictureViewSize = size
+        
+        //更新行高
+        updateRowHeight()
     }
     
     /// 计算制定数量的图片对应的配图视图大小
