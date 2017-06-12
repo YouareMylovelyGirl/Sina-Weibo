@@ -103,10 +103,9 @@ class StatusListViewModel {
                 
             } else {
                 
-                self.cacheSingleImage(list: array)
+                self.cacheSingleImage(list: array, completionHandler: completionHandler)
                 
-                //4. 这里很定有值, 返回data
-                completionHandler(data, nil, true)
+                
             }
             
             
@@ -115,10 +114,10 @@ class StatusListViewModel {
     
     
     /// 缓存本次下载微博数据数组中的单张图像
-    ///
+    /// - 应该缓存完单张图像, 并且求该国配图视图大小之后, 再回调, 才能够保证表格等比例显示单张图像
     /// - Parameter list: 本次下载的视图模型数组
-    fileprivate func cacheSingleImage(list: [StatusViewModel]) {
-        
+    fileprivate func cacheSingleImage(list: [StatusViewModel], completionHandler:@escaping (_ data: [[String: AnyObject]]?, _ error: NSError?,  _ shouldRefresh: Bool)->()) {
+        //定义分组
         let group = DispatchGroup()
         
         //记录数据长度
@@ -167,6 +166,8 @@ class StatusListViewModel {
         //C>监听调度组情况
         group.notify(queue: DispatchQueue.main) { 
             print("图像缓存完成\(length / 1024)K")
+            //4. 这里很定有值, 返回data
+            completionHandler(nil, nil, true)
         }
     }
     
