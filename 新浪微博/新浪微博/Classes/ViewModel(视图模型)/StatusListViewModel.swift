@@ -1,4 +1,4 @@
-//
+ //
 //  StatusListViewModel.swift
 //  新浪微博
 //
@@ -7,6 +7,7 @@
 //
 
 import Foundation
+ import SDWebImage
 //微博数据列表视图模型
 /*
  父类的选择,如果需要使用KVC 或者字典转模型框架设置对象, 累就需要继承自NSObject
@@ -101,11 +102,72 @@ class StatusListViewModel {
                 completionHandler(data, nil, false)
                 
             } else {
-                //3. 这里很定有值, 返回data
+                
+                self.cacheSingleImage(list: array)
+                
+                //4. 这里很定有值, 返回data
                 completionHandler(data, nil, true)
             }
             
             
         }
     }
+    
+    
+    /// 缓存本次下载微博数据数组中的单张图像
+    ///
+    /// - Parameter list: 本次下载的视图模型数组
+    fileprivate func cacheSingleImage(list: [StatusViewModel]) {
+        
+        let group = DispatchGroup()
+        
+        //记录数据长度
+        var length = 0
+        
+        //便利数组, 查找微博数据中有单张图像的进行缓存
+        for vm in list {
+            //1. 判断图像数量
+            if vm.picURLs?.count != 1 {
+                continue
+            }
+            
+            //2. 代码执行到此, 数组中有且只有一张图片 获取url图像模型
+            guard let pic = vm.picURLs?[0].thumbnail_pic,
+                let url = URL(string: pic) else {
+                    continue
+            }
+            
+            //3. 下载图像
+            //downloadImage 是 SDWebImage的和兴方法
+            //图像下载完成之后, 会自动宝尊在沙河中, 文件路径是url的MD5
+            //如果沙盒中已经存在缓存的图像, 会需使用SD通过url 加载图形都会加载本地沙盒的图像
+            //不会发起网络请求, 同时回调方法同样会调用
+            // 注意: 如果要缓存的图像累计很大, 找后台要接口
+            // 和心方法 , 可以获得 图像的宽高
+            
+            //A> 入组
+            group.enter()
+            
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _) in
+                
+                //将图像转换成二进制
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image) {
+                    //NSData 是 length 属性
+                    length += data.count
+                }
+                
+                print("缓存图像是\(String(describing: image))  长度\(length)")
+                //B> 出组 - 放在回调的最后一句
+                group.leave()
+            });
+            
+        }
+        
+        //C>监听调度组情况
+        group.notify(queue: DispatchQueue.main) { 
+            print("图像缓存完成\(length / 1024)K")
+        }
+    }
+    
 }
