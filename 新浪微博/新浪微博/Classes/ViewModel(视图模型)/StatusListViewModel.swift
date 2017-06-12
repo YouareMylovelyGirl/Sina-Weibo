@@ -143,7 +143,7 @@ class StatusListViewModel {
             //不会发起网络请求, 同时回调方法同样会调用
             // 注意: 如果要缓存的图像累计很大, 找后台要接口
             // 和心方法 , 可以获得 图像的宽高
-            
+            // 使用这个方法下载下来的图片, 可以获得image, 并且可以通过image.size 获得 宽高, 然后更新
             //A> 入组
             group.enter()
             
@@ -154,6 +154,10 @@ class StatusListViewModel {
                     let data = UIImagePNGRepresentation(image) {
                     //NSData 是 length 属性
                     length += data.count
+                    
+                    //图像缓存成功, 更新配图视图的大小
+                    vm.updateImageSize(image: image)
+                    
                 }
                 
                 print("缓存图像是\(String(describing: image))  长度\(length)")

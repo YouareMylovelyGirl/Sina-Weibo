@@ -10,8 +10,43 @@ import UIKit
 
 class StatusPictureView: UIView {
     
+    var viewModel: StatusViewModel? {
+        didSet {
+            calcViewSize()
+            
+            //设置url
+            urls = viewModel?.picURLs
+        }
+    }
+    
+    //根据视图模型的配图大小, 调整显示内容
+    private func calcViewSize() {
+        
+        //处理宽度
+        //1. 单图, 根据配图视图的大小, 修改subViews[0]的宽高
+        
+        if viewModel?.picURLs?.count == 1 {
+            let viewSize = viewModel?.pictureViewSize ?? CGSize()
+            
+            //a) 获取第0个图像视图
+            let v = subviews[0]
+            //上次height加上了, 这次要减去
+            v.frame = CGRect(x: 0, y: StatusPictureViewOutterMargin, width: viewSize.width, height: viewSize.height - StatusPictureViewOutterMargin)
+        } else {
+            //2. 多图(无图), 恢复subView[0]的宽高, 保证九宫格布局的完整
+            let v = subviews[0]
+            v.frame = CGRect(x: 0, y: StatusPictureViewOutterMargin, width: StatusPictureItemWidth, height: StatusPictureItemWidth)
+        }
+        
+        
+        
+        //修改高度约束
+        heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+    }
+    
+    
     //配图视图数组
-    var urls: [StatusPicture]? {
+    fileprivate var urls: [StatusPicture]? {
         didSet {
             //隐藏所有的imageView
             for v in subviews {
