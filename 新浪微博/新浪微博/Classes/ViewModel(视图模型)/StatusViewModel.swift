@@ -41,7 +41,15 @@ class StatusViewModel:CustomStringConvertible {
     //配图视图
     var pictureViewSize = CGSize()
     
-    
+    //如果是被转发的微博, 原创微博一定没有图
+    var picURLs :[StatusPicture]? {
+        //如果有被转发的微博, 返回被转发微博的配图
+        //如果没有被转发的微博, 烦你原创微博的配图
+        //如果都没有返回nil
+        return status.retweeted_status?.pic_urls ?? status.pic_urls
+    }
+    //被转发微博文字
+    var retweetedText: String?
     
     /// 构造函数
     ///
@@ -71,8 +79,11 @@ class StatusViewModel:CustomStringConvertible {
         likeStr = countString(count: status.attitudes_count, defaultStr: "赞")
         
         
-        //计算配图视图大小
+        //计算配图视图大小(有原创的就计算原创的, 有转发的就计算转发的)
         pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count)
+        
+        // 设置被转发微博的文字
+        retweetedText = "@" + (status.retweeted_status?.user?.screen_name ?? "") + ":" + (status.retweeted_status?.text ?? "")
         
     }
     

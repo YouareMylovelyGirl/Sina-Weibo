@@ -9,7 +9,11 @@
 import UIKit
 
 //定义全局常量, 尽量使用private修饰, 要不然导出都能使用
-fileprivate let cellID = "cellID"
+
+/// 原创微博cellid
+fileprivate let originalCellId = "originalCellId"
+/// 被转发微博的可重用cellid
+fileprivate let retweetedCellId = "retweetedCellId"
 
 class HomeController: BaseViewController {
     
@@ -61,8 +65,15 @@ extension HomeController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        ///FIXME: - 修改Id
+        //0. 取出视图模型, 根据视图模型判断可重用cell
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        let cellId = (vm.status.retweeted_status != nil) ? retweetedCellId : originalCellId
+        
         //1. 取cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID,for: indexPath) as! StatusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId,for: indexPath) as! StatusCell
         //2. 设置cell
         let viewModel = listViewModel.statusList[indexPath.row]
         
@@ -91,7 +102,10 @@ extension HomeController {
 //        tableView?.register(UITableViewCell.self, fosrCellReuseIdentifier: cellID)
         
         //注册原型cell
-        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: cellID)
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
+        setupNavTitle()
+        
+        tableView?.register(UINib(nibName: "StatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
         setupNavTitle()
         
         // 设置行高
