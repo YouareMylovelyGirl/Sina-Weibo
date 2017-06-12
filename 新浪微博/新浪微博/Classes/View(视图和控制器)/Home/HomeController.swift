@@ -84,6 +84,17 @@ extension HomeController {
         //3. 返回cell
         return cell
     }
+    
+    //设置行高
+    //没有override, 在2.0 没有关系, 在3.0没有overide父类没有提供这个方法 Swift3.1 进行完善
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //1. 根据indexPath获取视图模型
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        //2. 返回计算好的行高
+        return vm.rowHeight
+    }
+    
 }
 
 
@@ -109,8 +120,8 @@ extension HomeController {
         setupNavTitle()
         
         // 设置行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 300
+//        tableView?.rowHeight = UITableViewAutomaticDimension
+//        tableView?.estimatedRowHeight = 300
         
         // 取消分割线
         tableView?.separatorStyle = .none
