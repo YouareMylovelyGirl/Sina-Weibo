@@ -39,7 +39,7 @@ class HomeController: BaseViewController {
         
 //        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.first?.text))")
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { 
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.listViewModel.loadStatus(pullUp: self.isPullup) { (data, error, shouldRefredh) in
                 print("加载数据结束")
                 //结束刷新控件

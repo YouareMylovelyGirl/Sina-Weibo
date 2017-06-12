@@ -24,6 +24,7 @@
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
 		A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */; };
+		A44460791EEE95BA0088B3FC /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44460781EEE95BA0088B3FC /* RefreshControl.swift */; };
 		A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A02791EE5510200425C64 /* AppDelegate.swift */; };
 		A45A02811EE5510200425C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A02801EE5510200425C64 /* Assets.xcassets */; };
 		A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A029D1EE557C400425C64 /* DiscoverController.swift */; };
@@ -68,6 +69,7 @@
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusRetweetedCell.xib; sourceTree = "<group>"; };
+		A44460781EEE95BA0088B3FC /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A02791EE5510200425C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45A02801EE5510200425C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 			path = TitleButton;
 			sourceTree = "<group>";
 		};
+		A44460771EEE95980088B3FC /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				A44460781EEE95BA0088B3FC /* RefreshControl.swift */,
+			);
+			path = RefreshControl;
+			sourceTree = "<group>";
+		};
 		A45A026D1EE5510200425C64 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 		A45A028D1EE556E400425C64 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				A44460771EEE95980088B3FC /* RefreshControl */,
 				A4B856611EE7B34E007FD58F /* NetManager */,
 				A45A02A51EE55FC000425C64 /* Extension */,
 				A4D9F8951EE857A100778047 /* WeiBoCommon.swift */,
@@ -503,6 +514,7 @@
 				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
 				A43802441EEAB0D100913232 /* StatusCell.swift in Sources */,
 				A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */,
+				A44460791EEE95BA0088B3FC /* RefreshControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
