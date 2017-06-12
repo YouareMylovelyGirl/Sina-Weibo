@@ -28,10 +28,13 @@ class StatusCell: UITableViewCell {
             //底部工具栏
             toolBar.viewModel = viewModel
             
+            //配图视图的视图模型
+            pictureView.viewModel = viewModel
+            
             //测试修改配图视图的高度
-            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+//            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
             //设置配图视图的URL数据(被转发和原创)
-            pictureView.urls = viewModel?.status.pic_urls
+//            pictureView.urls = viewModel?.status.pic_urls
             //设置被转发微博的文字
             retweetedText?.text = viewModel?.retweetedText
             
@@ -46,7 +49,7 @@ class StatusCell: UITableViewCell {
 //            }
             
             //设置配图(被转发和原创)
-            pictureView.urls = viewModel?.picURLs
+//            pictureView.urls = viewModel?.picURLs
         }
     }
     
