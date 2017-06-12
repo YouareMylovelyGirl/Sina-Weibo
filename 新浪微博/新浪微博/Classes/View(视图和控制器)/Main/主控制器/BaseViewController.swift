@@ -33,7 +33,7 @@ class BaseViewController: UIViewController {
     var isPullup = false
     
     //刷新控件
-    var refreshControl: UIRefreshControl?
+    var refreshControl: RefreshControl?
     
     /// 表格视图 - 如果用户没有登录, 就不创建
     var tableView: UITableView?
@@ -141,7 +141,7 @@ extension BaseViewController {
             
             //设置刷新控件
             //1. 实例化控件
-            refreshControl = UIRefreshControl()
+            refreshControl = RefreshControl()
             //2. 添加到表格视图
             tableView?.addSubview(refreshControl!)
             //3. 添加监听方法
