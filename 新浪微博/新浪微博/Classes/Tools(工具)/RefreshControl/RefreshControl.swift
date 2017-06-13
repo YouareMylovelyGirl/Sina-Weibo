@@ -116,6 +116,7 @@ class RefreshControl: UIControl {
         if sv.isDragging {
             // 设置超出边界不显示
              clipsToBounds = false
+            
             if height > RefreshOffset && (refreshView.refreshState == .Normal) {
                 print("放手刷新")
                 refreshView.refreshState = .Pulling
