@@ -10,6 +10,22 @@ import UIKit
 
 class ComposeTypeView: UIView {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    /// 按钮数据数组
+    private let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
+                               ["imageName": "tabbar_compose_photo", "title": "照片/视频"],
+                               ["imageName": "tabbar_compose_weibo", "title": "长微博"],
+                               ["imageName": "tabbar_compose_lbs", "title": "签到"],
+                               ["imageName": "tabbar_compose_review", "title": "点评"],
+                               ["imageName": "tabbar_compose_more", "title": "更多", "actionName": "clickMore"],
+                               ["imageName": "tabbar_compose_friend", "title": "好友圈"],
+                               ["imageName": "tabbar_compose_wbcamera", "title": "微博相机"],
+                               ["imageName": "tabbar_compose_music", "title": "音乐"],
+                               ["imageName": "tabbar_compose_shooting", "title": "拍摄"]]
+    
+    
+    
     class func composeTypeView() -> ComposeTypeView {
         let nib = UINib(nibName: "ComposeTypeView", bundle: nil)
         let v = nib.instantiate(withOwner: nil, options: nil)[0] as! ComposeTypeView
@@ -19,6 +35,9 @@ class ComposeTypeView: UIView {
         
         return v
         
+    }
+    @IBAction func close() {
+        removeFromSuperview()
     }
 
     
@@ -48,12 +67,6 @@ class ComposeTypeView: UIView {
 //里面每个函数都是私有
 fileprivate extension ComposeTypeView {
     func setupUI() {
-        //1. 创建类型按钮
-        let btn = ComposeTypeButton.composeTypeButton(imageName: "tabbar_compose_idea", title: "试一试")
-        btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         
-        //2. 添加监听方法
-        btn.addTarget(self, action: #selector(clickButton), for: .touchUpInside)
-        addSubview(btn)
     }
 }
