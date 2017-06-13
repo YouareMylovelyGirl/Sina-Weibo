@@ -56,16 +56,16 @@ import UIKit
         var parentViewHeight: CGFloat = 0
     
     //提示图标
-    @IBOutlet weak var tipIcon: UIImageView!
+    @IBOutlet weak var tipIcon: UIImageView?
     //指示器
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView?
     //提示标签
-    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel?
     
     
     class func refreshView() -> RefreshView {
         
-        let nib = UINib(nibName: "RefreshView", bundle: nil)
+        let nib = UINib(nibName: "MTRefreshView", bundle: nil)
         
         return nib.instantiate(withOwner: nil, options: nil)[0] as! RefreshView
     }

@@ -114,7 +114,8 @@ class RefreshControl: UIControl {
         
         // 判断临界点 - 只需要判断一次
         if sv.isDragging {
-            
+            // 设置超出边界不显示
+             clipsToBounds = false
             if height > RefreshOffset && (refreshView.refreshState == .Normal) {
                 print("放手刷新")
                 refreshView.refreshState = .Pulling
@@ -168,7 +169,8 @@ class RefreshControl: UIControl {
     /// 结束刷新
     func endRefreshing() {
         print("结束刷新")
-        
+        // 设置超出边界不显示
+         clipsToBounds = true
         guard let sv = scrollView else {
             return
         }
@@ -181,11 +183,15 @@ class RefreshControl: UIControl {
         // 恢复刷新视图的状态
         refreshView.refreshState = .Normal
         
-        // 恢复表格视图的 contentInset
-        var inset = sv.contentInset
-        inset.top -= RefreshOffset
+        UIView .animate(withDuration: 0.25) { 
+            // 恢复表格视图的 contentInset
+            var inset = sv.contentInset
+            inset.top -= RefreshOffset
+            
+            sv.contentInset = inset
+        }
         
-        sv.contentInset = inset
+        
     }
 }
 
