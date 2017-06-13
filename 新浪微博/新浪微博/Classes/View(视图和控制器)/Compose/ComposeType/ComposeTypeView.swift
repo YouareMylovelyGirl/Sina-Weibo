@@ -13,7 +13,7 @@ class ComposeTypeView: UIView {
     @IBOutlet weak var scrollView: UIScrollView!
     
     /// 按钮数据数组
-    private let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
+    fileprivate let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
                                ["imageName": "tabbar_compose_photo", "title": "照片/视频"],
                                ["imageName": "tabbar_compose_weibo", "title": "长微博"],
                                ["imageName": "tabbar_compose_lbs", "title": "签到"],
@@ -28,10 +28,13 @@ class ComposeTypeView: UIView {
     
     class func composeTypeView() -> ComposeTypeView {
         let nib = UINib(nibName: "ComposeTypeView", bundle: nil)
+        // 从 XIB加载完成视图, 就会调用awakeFromNib
         let v = nib.instantiate(withOwner: nil, options: nil)[0] as! ComposeTypeView
         
         //xib 默认是600 x 600
         v.frame = UIScreen.main.bounds
+        
+        v.setupUI()
         
         return v
         
@@ -53,9 +56,7 @@ class ComposeTypeView: UIView {
     }
     
     
-    override func awakeFromNib() {
-        setupUI()
-    }
+
     
     //MARK: - 监听方法
     @objc fileprivate func clickButton() {
@@ -67,6 +68,72 @@ class ComposeTypeView: UIView {
 //里面每个函数都是私有
 fileprivate extension ComposeTypeView {
     func setupUI() {
+        //有时候大小不对, 可能与代码调用顺序有关\
+        //有时也需要强行更新布局来解决大小
+        
+        
+        //0. 强行更新布局
+        layoutIfNeeded()
+        
+        //1. 向scrolloview添加视图
+        let rect = scrollView.bounds
+        
+        let v = UIView(frame: rect)
+        
+        //2. 向视图添加按钮
+        addButton(v: v, idx: 0)
+        
+        //3. 将试图添加到scrollView
+        scrollView.addSubview(v)
         
     }
+    
+    //向v中添加按钮, 按钮的数组索引从idx开始
+    /*
+     这里分两次布局
+     第一次布局添加控件, 
+     第二次布局设置位置
+     */
+    func addButton(v: UIView, idx: Int) {
+        //从idx开始添加6个按钮
+        let count = 6
+        
+        for i in idx..<(idx + count) {
+            
+            if idx >= buttonsInfo.count {
+                break
+            }
+            //0.从数组字典中获取图像名称和title
+            let dict = buttonsInfo[i]
+            guard let imageName = dict["imageName"],
+                let title = dict["title"] else {
+                    continue
+            }
+            
+            
+            //1. 创建按钮
+            let btn = ComposeTypeButton.composeTypeButton(imageName: imageName, title: title)
+            
+            v.addSubview(btn)
+        }
+        
+        //准备常量
+        let btnSize = CGSize(width: 100, height: 100)
+        let margin = (v.bounds.width - 3 * btnSize.width) / 4
+        
+        //便利视图的子视图 布局按钮
+        //注意这里是v.subViews
+        for (i, btn) in v.subviews.enumerated() {
+            
+            let y: CGFloat = (i > 2) ? (v.bounds.height - btnSize.height) : 0
+            let col = i % 3
+            let x = CGFloat(col + 1) * margin + CGFloat(col) * btnSize.width
+            
+            btn.frame = CGRect(x: x, y: y, width: btnSize.width, height: btnSize.height)
+        }
+        
+        
+        
+    }
+    
 }
