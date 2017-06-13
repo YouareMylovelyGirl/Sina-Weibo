@@ -41,13 +41,7 @@ class WelcomeView: UIView {
 //    }
     
     override func awakeFromNib() {
-        
-       
-    
-        
-        
 
-        
         //1. url
         guard let urlString = NetManager.shareInstance.userAccount.avatar_large,
             let url = URL(string: urlString) ,
@@ -74,6 +68,8 @@ class WelcomeView: UIView {
 //        
 //    }
     
+    
+    //didMoveToWindow 生命周期比  layoutSubView要早
     //视图被添加到window 上, 表示视图已经显示
     override func didMoveToWindow() {
         super.didMoveToWindow()

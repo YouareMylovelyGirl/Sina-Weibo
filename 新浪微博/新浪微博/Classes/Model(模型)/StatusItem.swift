@@ -16,9 +16,35 @@ class StatusItem: NSObject {
     var id: Int64 = 0
     //微博数据内容
     var text: String?
+    /// 微博用户
+    var user: User?
+    //转发数
+    var reposts_cout: Int = 0
+    //评论数
+    var comments_count: Int = 0
+    //点赞数
+    var attitudes_count: Int = 0
+    //被转发的原创微博
+    var retweeted_status: StatusItem?
+    
+    
+    //微博配图模型数组
+    var pic_urls: [StatusPicture]?
+    
     
     //重写description的计算型属性
     override var description: String {
         return yy_modelDescription()
     }
+    
+    //类函数 -> 告诉第三方框架, 如果遇到数组类型的属性, 数组中存放的对象是什么类?
+    //NSArray中 保存对象的类型通常是`id`类型
+    //OC中的泛型Swift退出后, 苹果为了兼容给OC增加的, 从运行时角度, 仍然不知道数组中应该存放什么类型的对象
+    
+    class func modelContainerPropertyGenericClass() ->[String : AnyObject]? {
+
+        return ["pic_urls": StatusPicture.self]
+        
+    }
+    
 }

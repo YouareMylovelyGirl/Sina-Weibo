@@ -11,9 +11,20 @@
 		A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438021A1EEA0F7600913232 /* NewFeatureView.swift */; };
 		A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021C1EEA1AE300913232 /* WelcomeView.xib */; };
 		A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021E1EEA2DE700913232 /* NewFeatureView.xib */; };
+		A43802441EEAB0D100913232 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43802431EEAB0D100913232 /* StatusCell.swift */; };
+		A43802461EEAB0E800913232 /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43802451EEAB0E800913232 /* StatusNormalCell.xib */; };
+		A438A1ED1EECC7090070DF3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1EC1EECC7090070DF3D /* User.swift */; };
+		A438A1EF1EECCAC80070DF3D /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1EE1EECCAC80070DF3D /* StatusViewModel.swift */; };
+		A438A1F11EED07E20070DF3D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F01EED07E20070DF3D /* UIImageView+Extension.swift */; };
+		A438A1F31EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F21EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift */; };
+		A438A1F51EED2B1D0070DF3D /* StatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F41EED2B1D0070DF3D /* StatusToolBar.swift */; };
+		A438A1F71EED38F80070DF3D /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F61EED38F80070DF3D /* StatusPictureView.swift */; };
+		A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438A1F81EED3E4B0070DF3D /* StatusPicture.swift */; };
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
+		A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */; };
+		A44460791EEE95BA0088B3FC /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44460781EEE95BA0088B3FC /* RefreshControl.swift */; };
 		A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A02791EE5510200425C64 /* AppDelegate.swift */; };
 		A45A02811EE5510200425C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A02801EE5510200425C64 /* Assets.xcassets */; };
 		A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A029D1EE557C400425C64 /* DiscoverController.swift */; };
@@ -45,9 +56,20 @@
 		A438021A1EEA0F7600913232 /* NewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
 		A438021C1EEA1AE300913232 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 		A438021E1EEA2DE700913232 /* NewFeatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFeatureView.xib; sourceTree = "<group>"; };
+		A43802431EEAB0D100913232 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		A43802451EEAB0E800913232 /* StatusNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
+		A438A1EC1EECC7090070DF3D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A438A1EE1EECCAC80070DF3D /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		A438A1F01EED07E20070DF3D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		A438A1F21EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage_AvatarImage+Extension.swift"; sourceTree = "<group>"; };
+		A438A1F41EED2B1D0070DF3D /* StatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusToolBar.swift; sourceTree = "<group>"; };
+		A438A1F61EED38F80070DF3D /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		A438A1F81EED3E4B0070DF3D /* StatusPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPicture.swift; sourceTree = "<group>"; };
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusRetweetedCell.xib; sourceTree = "<group>"; };
+		A44460781EEE95BA0088B3FC /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A02791EE5510200425C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45A02801EE5510200425C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +125,18 @@
 			path = NewFeature;
 			sourceTree = "<group>";
 		};
+		A43802421EEAB0BC00913232 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */,
+				A43802431EEAB0D100913232 /* StatusCell.swift */,
+				A43802451EEAB0E800913232 /* StatusNormalCell.xib */,
+				A438A1F41EED2B1D0070DF3D /* StatusToolBar.swift */,
+				A438A1F61EED38F80070DF3D /* StatusPictureView.swift */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
 		A43C40631EE8C1560076EEEE /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +159,14 @@
 				A43C406A1EE96BD80076EEEE /* TitleButton.swift */,
 			);
 			path = TitleButton;
+			sourceTree = "<group>";
+		};
+		A44460771EEE95980088B3FC /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				A44460781EEE95BA0088B3FC /* RefreshControl.swift */,
+			);
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		A45A026D1EE5510200425C64 = {
@@ -171,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				A4D9F8911EE7EA8300778047 /* StatusItem.swift */,
+				A438A1EC1EECC7090070DF3D /* User.swift */,
+				A438A1F81EED3E4B0070DF3D /* StatusPicture.swift */,
 			);
 			path = "Model(模型)";
 			sourceTree = "<group>";
@@ -178,6 +222,7 @@
 		A45A028D1EE556E400425C64 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				A44460771EEE95980088B3FC /* RefreshControl */,
 				A4B856611EE7B34E007FD58F /* NetManager */,
 				A45A02A51EE55FC000425C64 /* Extension */,
 				A4D9F8951EE857A100778047 /* WeiBoCommon.swift */,
@@ -208,6 +253,7 @@
 		A45A02901EE556E400425C64 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A43802421EEAB0BC00913232 /* StatusCell */,
 				A43C40691EE96BC00076EEEE /* TitleButton */,
 				A45A029F1EE557D500425C64 /* HomeController.swift */,
 			);
@@ -246,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D9F8931EE7ECBF00778047 /* StatusListViewModel.swift */,
+				A438A1EE1EECCAC80070DF3D /* StatusViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -256,6 +303,8 @@
 				A45A02A61EE55FFF00425C64 /* Bundle+Extensions.swift */,
 				A45A02A81EE569A900425C64 /* UIColor+Extensions.swift */,
 				A45A02AD1EE5B13400425C64 /* UIBarButtonItem+Extension.swift */,
+				A438A1F01EED07E20070DF3D /* UIImageView+Extension.swift */,
+				A438A1F21EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -341,6 +390,7 @@
 				TargetAttributes = {
 					A45A02751EE5510200425C64 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = AY38N8FYFG;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -370,9 +420,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */,
+				A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */,
 				A48FD9701EE6CAC700925D89 /* Main.json in Resources */,
 				A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */,
 				A45A02811EE5510200425C64 /* Assets.xcassets in Resources */,
+				A43802461EEAB0E800913232 /* StatusNormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,19 +483,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A438A1EF1EECCAC80070DF3D /* StatusViewModel.swift in Sources */,
 				A48FD96A1EE665E600925D89 /* BaseViewController.swift in Sources */,
 				A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */,
 				A45A02A91EE569A900425C64 /* UIColor+Extensions.swift in Sources */,
+				A438A1ED1EECC7090070DF3D /* User.swift in Sources */,
 				A4D9F8901EE7D80E00778047 /* NetManager+Extension.swift in Sources */,
 				A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */,
 				A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */,
 				A48FD96B1EE665E600925D89 /* MainNavigationController.swift in Sources */,
 				A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */,
 				A45A02A21EE557E400425C64 /* MessageController.swift in Sources */,
+				A438A1F71EED38F80070DF3D /* StatusPictureView.swift in Sources */,
 				A4D9F8961EE857A100778047 /* WeiBoCommon.swift in Sources */,
+				A438A1F11EED07E20070DF3D /* UIImageView+Extension.swift in Sources */,
 				A45A02AE1EE5B13400425C64 /* UIBarButtonItem+Extension.swift in Sources */,
 				A4B856671EE7B44F007FD58F /* NetManager.swift in Sources */,
+				A438A1F51EED2B1D0070DF3D /* StatusToolBar.swift in Sources */,
 				A48FD96E1EE6661200925D89 /* VisitorView.swift in Sources */,
+				A438A1F31EED0A710070DF3D /* UIImage_AvatarImage+Extension.swift in Sources */,
 				A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */,
 				A45A02A71EE55FFF00425C64 /* Bundle+Extensions.swift in Sources */,
 				A45A02AC1EE57AA700425C64 /* DemoViewController.swift in Sources */,
@@ -454,6 +512,9 @@
 				A45A02A41EE557EE00425C64 /* ProfileController.swift in Sources */,
 				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
 				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
+				A43802441EEAB0D100913232 /* StatusCell.swift in Sources */,
+				A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */,
+				A44460791EEE95BA0088B3FC /* RefreshControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -545,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -560,11 +621,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AY38N8FYFG;
 				INFOPLIST_FILE = "新浪微博/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YG.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -578,11 +642,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AY38N8FYFG;
 				INFOPLIST_FILE = "新浪微博/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YG.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};

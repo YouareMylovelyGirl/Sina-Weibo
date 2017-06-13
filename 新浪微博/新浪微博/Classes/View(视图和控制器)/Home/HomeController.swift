@@ -9,7 +9,11 @@
 import UIKit
 
 //定义全局常量, 尽量使用private修饰, 要不然导出都能使用
-fileprivate let cellID = "cellID"
+
+/// 原创微博cellid
+fileprivate let originalCellId = "originalCellId"
+/// 被转发微博的可重用cellid
+fileprivate let retweetedCellId = "retweetedCellId"
 
 class HomeController: BaseViewController {
     
@@ -33,9 +37,9 @@ class HomeController: BaseViewController {
         
         refreshControl?.beginRefreshing()
         
-        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.first?.text))")
+//        print("准备刷新, 最后一条\(String(describing: self.listViewModel.statusList.first?.text))")
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { 
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.listViewModel.loadStatus(pullUp: self.isPullup) { (data, error, shouldRefredh) in
                 print("加载数据结束")
                 //结束刷新控件
@@ -61,13 +65,36 @@ extension HomeController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //1. 取cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID,for: indexPath)
+        
+        ///FIXME: - 修改Id
+        //0. 取出视图模型, 根据视图模型判断可重用cell
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        let cellId = (vm.status.retweeted_status != nil) ? retweetedCellId : originalCellId
+        
+        //1. 取cell - 本身会调用代理方法(如果有), 如果没有, 找到cell, 按照自动布局规则, 从上向下计算, 找到向下的约束, 从而计算动态行高
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId,for: indexPath) as! StatusCell
         //2. 设置cell
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        let viewModel = listViewModel.statusList[indexPath.row]
+        
+        cell.viewModel = viewModel
+        
+        
+        
         //3. 返回cell
         return cell
     }
+    
+    //设置行高
+    //没有override, 在2.0 没有关系, 在3.0没有overide父类没有提供这个方法 Swift3.1 进行完善
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //1. 根据indexPath获取视图模型
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        //2. 返回计算好的行高
+        return vm.rowHeight
+    }
+    
 }
 
 
@@ -83,9 +110,21 @@ extension HomeController {
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 16, target: self, action: #selector(showFriends))
 
         //这里需要先注册原形cell
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+//        tableView?.register(UITableViewCell.self, fosrCellReuseIdentifier: cellID)
         
+        //注册原型cell
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
         setupNavTitle()
+        
+        tableView?.register(UINib(nibName: "StatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
+        setupNavTitle()
+        
+        // 设置行高
+//        tableView?.rowHeight = UITableViewAutomaticDimension
+//        tableView?.estimatedRowHeight = 300
+        
+        // 取消分割线
+        tableView?.separatorStyle = .none
     
     }
     
