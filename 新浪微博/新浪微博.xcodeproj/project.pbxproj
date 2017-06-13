@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A437DE5C1EEF9F9A005385AF /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437DE591EEF9F9A005385AF /* RefreshControl.swift */; };
+		A437DE5D1EEF9F9A005385AF /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437DE5A1EEF9F9A005385AF /* RefreshView.swift */; };
+		A437DE5E1EEF9F9A005385AF /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A437DE5B1EEF9F9A005385AF /* RefreshView.xib */; };
 		A43802191EEA0F3200913232 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43802181EEA0F3200913232 /* WelcomeView.swift */; };
 		A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438021A1EEA0F7600913232 /* NewFeatureView.swift */; };
 		A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021C1EEA1AE300913232 /* WelcomeView.xib */; };
@@ -24,7 +27,6 @@
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
 		A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */; };
-		A44460791EEE95BA0088B3FC /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44460781EEE95BA0088B3FC /* RefreshControl.swift */; };
 		A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A02791EE5510200425C64 /* AppDelegate.swift */; };
 		A45A02811EE5510200425C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A02801EE5510200425C64 /* Assets.xcassets */; };
 		A45A029E1EE557C400425C64 /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A029D1EE557C400425C64 /* DiscoverController.swift */; };
@@ -52,6 +54,9 @@
 		0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F4DA23D01FDC9FED8398B9 /* Pods-新浪微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.debug.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.debug.xcconfig"; sourceTree = "<group>"; };
 		6F31289FA50014B34F1A21B8 /* Pods-新浪微博.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博.release.xcconfig"; path = "Pods/Target Support Files/Pods-新浪微博/Pods-新浪微博.release.xcconfig"; sourceTree = "<group>"; };
+		A437DE591EEF9F9A005385AF /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
+		A437DE5A1EEF9F9A005385AF /* RefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
+		A437DE5B1EEF9F9A005385AF /* RefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshView.xib; sourceTree = "<group>"; };
 		A43802181EEA0F3200913232 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A438021A1EEA0F7600913232 /* NewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
 		A438021C1EEA1AE300913232 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
@@ -69,7 +74,6 @@
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusRetweetedCell.xib; sourceTree = "<group>"; };
-		A44460781EEE95BA0088B3FC /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A02791EE5510200425C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45A02801EE5510200425C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +116,16 @@
 				0D4550A3D17F1CEFCF51B40F /* Pods_____.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A437DE581EEF9F9A005385AF /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				A437DE591EEF9F9A005385AF /* RefreshControl.swift */,
+				A437DE5A1EEF9F9A005385AF /* RefreshView.swift */,
+				A437DE5B1EEF9F9A005385AF /* RefreshView.xib */,
+			);
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		A43802171EEA0D3500913232 /* NewFeature */ = {
@@ -159,14 +173,6 @@
 				A43C406A1EE96BD80076EEEE /* TitleButton.swift */,
 			);
 			path = TitleButton;
-			sourceTree = "<group>";
-		};
-		A44460771EEE95980088B3FC /* RefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				A44460781EEE95BA0088B3FC /* RefreshControl.swift */,
-			);
-			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		A45A026D1EE5510200425C64 = {
@@ -222,7 +228,7 @@
 		A45A028D1EE556E400425C64 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
-				A44460771EEE95980088B3FC /* RefreshControl */,
+				A437DE581EEF9F9A005385AF /* RefreshControl */,
 				A4B856611EE7B34E007FD58F /* NetManager */,
 				A45A02A51EE55FC000425C64 /* Extension */,
 				A4D9F8951EE857A100778047 /* WeiBoCommon.swift */,
@@ -422,6 +428,7 @@
 				A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */,
 				A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */,
 				A48FD9701EE6CAC700925D89 /* Main.json in Resources */,
+				A437DE5E1EEF9F9A005385AF /* RefreshView.xib in Resources */,
 				A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */,
 				A45A02811EE5510200425C64 /* Assets.xcassets in Resources */,
 				A43802461EEAB0E800913232 /* StatusNormalCell.xib in Resources */,
@@ -483,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A437DE5D1EEF9F9A005385AF /* RefreshView.swift in Sources */,
 				A438A1EF1EECCAC80070DF3D /* StatusViewModel.swift in Sources */,
 				A48FD96A1EE665E600925D89 /* BaseViewController.swift in Sources */,
 				A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */,
@@ -514,7 +522,7 @@
 				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
 				A43802441EEAB0D100913232 /* StatusCell.swift in Sources */,
 				A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */,
-				A44460791EEE95BA0088B3FC /* RefreshControl.swift in Sources */,
+				A437DE5C1EEF9F9A005385AF /* RefreshControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
