@@ -13,6 +13,10 @@
 		A437DE621EEFB0F1005385AF /* HumanRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A437DE611EEFB0F1005385AF /* HumanRefreshView.xib */; };
 		A437DE641EEFB283005385AF /* MTRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A437DE631EEFB283005385AF /* MTRefreshView.xib */; };
 		A437DE661EEFB35B005385AF /* MTRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437DE651EEFB35B005385AF /* MTRefreshView.swift */; };
+		A437DE6A1EEFD442005385AF /* ComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437DE691EEFD442005385AF /* ComposeTypeView.swift */; };
+		A437DE6C1EEFD779005385AF /* ComposeTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A437DE6B1EEFD779005385AF /* ComposeTypeView.xib */; };
+		A437DE701EEFDDBD005385AF /* ComposeTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437DE6F1EEFDDBD005385AF /* ComposeTypeButton.swift */; };
+		A437DE721EEFDDC7005385AF /* ComposeTypeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = A437DE711EEFDDC7005385AF /* ComposeTypeButton.xib */; };
 		A43802191EEA0F3200913232 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43802181EEA0F3200913232 /* WelcomeView.swift */; };
 		A438021B1EEA0F7600913232 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438021A1EEA0F7600913232 /* NewFeatureView.swift */; };
 		A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A438021C1EEA1AE300913232 /* WelcomeView.xib */; };
@@ -63,6 +67,10 @@
 		A437DE611EEFB0F1005385AF /* HumanRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumanRefreshView.xib; sourceTree = "<group>"; };
 		A437DE631EEFB283005385AF /* MTRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTRefreshView.xib; sourceTree = "<group>"; };
 		A437DE651EEFB35B005385AF /* MTRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTRefreshView.swift; sourceTree = "<group>"; };
+		A437DE691EEFD442005385AF /* ComposeTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTypeView.swift; sourceTree = "<group>"; };
+		A437DE6B1EEFD779005385AF /* ComposeTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeTypeView.xib; sourceTree = "<group>"; };
+		A437DE6F1EEFDDBD005385AF /* ComposeTypeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTypeButton.swift; sourceTree = "<group>"; };
+		A437DE711EEFDDC7005385AF /* ComposeTypeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeTypeButton.xib; sourceTree = "<group>"; };
 		A43802181EEA0F3200913232 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A438021A1EEA0F7600913232 /* NewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
 		A438021C1EEA1AE300913232 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
@@ -135,6 +143,26 @@
 				A437DE651EEFB35B005385AF /* MTRefreshView.swift */,
 			);
 			path = RefreshControl;
+			sourceTree = "<group>";
+		};
+		A437DE671EEFD423005385AF /* Compose(撰写) */ = {
+			isa = PBXGroup;
+			children = (
+				A437DE681EEFD423005385AF /* ComposeType */,
+			);
+			name = "Compose(撰写)";
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		A437DE681EEFD423005385AF /* ComposeType */ = {
+			isa = PBXGroup;
+			children = (
+				A437DE691EEFD442005385AF /* ComposeTypeView.swift */,
+				A437DE6F1EEFDDBD005385AF /* ComposeTypeButton.swift */,
+				A437DE711EEFDDC7005385AF /* ComposeTypeButton.xib */,
+				A437DE6B1EEFD779005385AF /* ComposeTypeView.xib */,
+			);
+			path = ComposeType;
 			sourceTree = "<group>";
 		};
 		A43802171EEA0D3500913232 /* NewFeature */ = {
@@ -248,6 +276,7 @@
 		A45A028E1EE556E400425C64 /* View(视图和控制器) */ = {
 			isa = PBXGroup;
 			children = (
+				A437DE671EEFD423005385AF /* Compose(撰写) */,
 				A45A028F1EE556E400425C64 /* Discover */,
 				A45A02901EE556E400425C64 /* Home */,
 				A45A02911EE556E400425C64 /* Main */,
@@ -435,10 +464,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A437DE621EEFB0F1005385AF /* HumanRefreshView.xib in Resources */,
+				A437DE6C1EEFD779005385AF /* ComposeTypeView.xib in Resources */,
 				A438021F1EEA2DE700913232 /* NewFeatureView.xib in Resources */,
 				A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */,
 				A48FD9701EE6CAC700925D89 /* Main.json in Resources */,
 				A437DE5E1EEF9F9A005385AF /* RefreshView.xib in Resources */,
+				A437DE721EEFDDC7005385AF /* ComposeTypeButton.xib in Resources */,
 				A437DE641EEFB283005385AF /* MTRefreshView.xib in Resources */,
 				A438021D1EEA1AE300913232 /* WelcomeView.xib in Resources */,
 				A45A02811EE5510200425C64 /* Assets.xcassets in Resources */,
@@ -503,8 +534,10 @@
 			files = (
 				A437DE5D1EEF9F9A005385AF /* RefreshView.swift in Sources */,
 				A438A1EF1EECCAC80070DF3D /* StatusViewModel.swift in Sources */,
+				A437DE701EEFDDBD005385AF /* ComposeTypeButton.swift in Sources */,
 				A48FD96A1EE665E600925D89 /* BaseViewController.swift in Sources */,
 				A48FD96C1EE665E600925D89 /* MainTabBarController.swift in Sources */,
+				A437DE6A1EEFD442005385AF /* ComposeTypeView.swift in Sources */,
 				A45A02A91EE569A900425C64 /* UIColor+Extensions.swift in Sources */,
 				A438A1ED1EECC7090070DF3D /* User.swift in Sources */,
 				A4D9F8901EE7D80E00778047 /* NetManager+Extension.swift in Sources */,

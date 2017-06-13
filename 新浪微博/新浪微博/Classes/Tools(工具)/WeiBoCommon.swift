@@ -12,9 +12,15 @@ import UIKit
 
 //MARK: - 应用程序信息
 //应用程序ID
-let APPKey = "39190169"
+let APPKey = "1659422547"
+//39190169
+//2715e085a21ca4f1083f3ff2544ee6cc
+//------
+//1659422547
+//470bfdc420e5cdbcca12a60ffffba2da
 //应用程序加密信息
-let APPSecret = "2715e085a21ca4f1083f3ff2544ee6cc"
+let APPSecret = "470bfdc420e5cdbcca12a60ffffba2da"
+
 //回调地址 - 登录完成跳转的URL, 参数以get形式拼接
 let RedirectURI = "http://baidu.com"
 

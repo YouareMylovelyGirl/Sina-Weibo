@@ -96,11 +96,18 @@ class MainTabBarController: UITabBarController {
     @objc fileprivate func composeStatus() {
         print("写微博")
         // 测试方向旋转
-        let vc = UIViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        vc.view.backgroundColor = UIColor.init().randomColor
+//        let vc = UIViewController()
+//        let nav = UINavigationController(rootViewController: vc)
+//        vc.view.backgroundColor = UIColor.init().randomColor
+//        
+//        present(nav, animated: true, completion: nil)
         
-        present(nav, animated: true, completion: nil)
+        //FIXME: - 判断是否登录
+        
+        //1. 实例化视图
+        let v = ComposeTypeView.composeTypeView()
+        //2. 显示视图
+        v.show()
         
     }
     
@@ -133,7 +140,7 @@ extension MainTabBarController {
         
         //0. 判断是否登录
         if !NetManager.shareInstance.userLogon {
-            
+            return
         }
         
         //1. 检查版本是否更新

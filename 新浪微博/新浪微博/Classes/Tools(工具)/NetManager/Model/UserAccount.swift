@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let accountFile = "useraccount.json"
+ let accountFile = "useraccount.json"
 
 //用户信息
 class UserAccount: NSObject {

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ComposeTypeView" customModule="新浪微博" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsn-jV-Hqu">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t9H-rq-w4r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="compose_slogan" translatesAutoresizingMaskIntoConstraints="NO" id="Dpn-AY-BUy">
+                                <rect key="frame" x="83" y="100" width="154" height="48"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvd-of-hze">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfL-K3-PeP">
+                                        <rect key="frame" x="148" y="10" width="25" height="25"/>
+                                        <state key="normal" backgroundImage="tabbar_compose_background_icon_close"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="MHh-JA-Yjs"/>
+                                    <constraint firstItem="GfL-K3-PeP" firstAttribute="centerX" secondItem="Uvd-of-hze" secondAttribute="centerX" id="h5E-KE-RgO"/>
+                                    <constraint firstItem="GfL-K3-PeP" firstAttribute="centerY" secondItem="Uvd-of-hze" secondAttribute="centerY" id="iOo-7O-X35"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMV-dG-3Uy">
+                                <rect key="frame" x="0.0" y="156" width="320" height="224"/>
+                                <color key="backgroundColor" red="0.82352315300000001" green="0.83201492759999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="2Ib-ry-c3T"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="224" maxY="0.0"/>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Dpn-AY-BUy" firstAttribute="centerX" secondItem="t9H-rq-w4r" secondAttribute="centerX" id="8yJ-sj-ImG"/>
+                            <constraint firstItem="Dpn-AY-BUy" firstAttribute="top" secondItem="t9H-rq-w4r" secondAttribute="top" constant="100" id="9Mf-xP-7Al"/>
+                            <constraint firstAttribute="bottom" secondItem="Uvd-of-hze" secondAttribute="bottom" id="XNy-qX-Dk8"/>
+                            <constraint firstAttribute="trailing" secondItem="uMV-dG-3Uy" secondAttribute="trailing" id="cWP-qS-cjx"/>
+                            <constraint firstItem="Uvd-of-hze" firstAttribute="leading" secondItem="t9H-rq-w4r" secondAttribute="leading" id="sGK-Zu-nPS"/>
+                            <constraint firstItem="uMV-dG-3Uy" firstAttribute="leading" secondItem="t9H-rq-w4r" secondAttribute="leading" id="sns-7z-k3y"/>
+                            <constraint firstAttribute="trailing" secondItem="Uvd-of-hze" secondAttribute="trailing" id="vcJ-ec-4d6"/>
+                            <constraint firstItem="Uvd-of-hze" firstAttribute="top" secondItem="uMV-dG-3Uy" secondAttribute="bottom" constant="56" id="yd1-qY-BRk"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Fsn-jV-Hqu" secondAttribute="trailing" id="dXb-nZ-0ga"/>
+                <constraint firstItem="Fsn-jV-Hqu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gVd-KB-q1d"/>
+                <constraint firstAttribute="bottom" secondItem="Fsn-jV-Hqu" secondAttribute="bottom" id="nm3-ll-tfX"/>
+                <constraint firstItem="Fsn-jV-Hqu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xNb-RY-0yh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="-100.5" y="-181"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="compose_slogan" width="154" height="48"/>
+        <image name="tabbar_compose_background_icon_close" width="25" height="25"/>
+    </resources>
+</document>
