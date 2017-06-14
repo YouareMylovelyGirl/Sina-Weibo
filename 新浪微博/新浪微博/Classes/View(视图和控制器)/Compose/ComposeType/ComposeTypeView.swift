@@ -78,13 +78,26 @@ fileprivate extension ComposeTypeView {
         //1. 向scrolloview添加视图
         let rect = scrollView.bounds
         
-        let v = UIView(frame: rect)
+        let width = scrollView.bounds.width
         
-        //2. 向视图添加按钮
-        addButton(v: v, idx: 0)
+        for i in 0..<2 {
+            let v = UIView(frame: rect.offsetBy(dx: CGFloat(i) * width, dy: 0))
+            
+            //2. 向视图添加按钮
+            addButton(v: v, idx: i * 6)
+            //3. 将试图添加到scrollView
+            scrollView.addSubview(v)
+            
+        }
         
-        //3. 将试图添加到scrollView
-        scrollView.addSubview(v)
+        //4. 设置scrollView
+        scrollView.contentSize = CGSize(width: 2 * width, height: 0)
+        scrollView.bounces = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+
+        //5. 禁用滚动
+        scrollView.isScrollEnabled = false
         
     }
     
@@ -100,7 +113,7 @@ fileprivate extension ComposeTypeView {
         
         for i in idx..<(idx + count) {
             
-            if idx >= buttonsInfo.count {
+            if i >= buttonsInfo.count {
                 break
             }
             //0.从数组字典中获取图像名称和title
