@@ -125,9 +125,37 @@ fileprivate extension ComposeTypeView {
             let anim: POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
             anim.fromValue = btn.center.y
             anim.toValue = btn.center.y + 400
-            btn.layer.pop_add(anim, forKey: nil)
             //设置动画起始时间 - 这里需要减一下 反序
             anim.beginTime = CACurrentMediaTime() + CFTimeInterval(v.subviews.count - i) * 0.025
+            //3. 添加动画
+            btn.layer.pop_add(anim, forKey: nil)
+            
+            //4. 监听第0个按钮 - 第0个按钮的动画是最后一个执行的
+            if i == 0 {
+                anim.completionBlock = { _, _ in
+                    self.hideCurrentView()
+                }
+            }
+        }
+        
+        //隐藏当前视图 - 开始时间
+    }
+    
+    //隐藏当前视图
+    func hideCurrentView() {
+        //1. 创建动画
+        let anim: POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        anim.fromValue = 1
+        anim.toValue = 0
+        anim.duration = 0.25
+        
+        //2. 添加到视图 - 是视图就添加到仕途上, 是layer就添加到layer上
+        pop_add(anim, forKey: nil)
+        
+        //3. 添加完成动画
+        anim.completionBlock = { _,_ in
+            self.removeFromSuperview()
+            
         }
     }
     
