@@ -51,9 +51,9 @@
                                     <constraint firstItem="cds-sa-5cC" firstAttribute="centerX" secondItem="Uvd-of-hze" secondAttribute="centerX" id="v1H-Yo-tXr"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMV-dG-3Uy">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMV-dG-3Uy">
                                 <rect key="frame" x="0.0" y="156" width="320" height="224"/>
-                                <color key="backgroundColor" red="0.82352315300000001" green="0.83201492759999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="224" id="2Ib-ry-c3T"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                             <constraint firstItem="Uvd-of-hze" firstAttribute="top" secondItem="uMV-dG-3Uy" secondAttribute="bottom" constant="56" id="yd1-qY-BRk"/>
                         </constraints>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="extraLight"/>
                 </visualEffectView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

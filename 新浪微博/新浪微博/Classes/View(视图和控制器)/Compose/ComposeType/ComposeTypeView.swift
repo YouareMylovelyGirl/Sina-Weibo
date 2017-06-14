@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import pop
 class ComposeTypeView: UIView {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -58,6 +58,8 @@ class ComposeTypeView: UIView {
         }
         //2. 添加视图
         vc.view.addSubview(self)
+        //3. 开始动画
+        showCurrentView()
     }
     
     
@@ -107,6 +109,47 @@ class ComposeTypeView: UIView {
         }
     }
     
+}
+//MARK: - 动画方法扩展
+fileprivate extension ComposeTypeView {
+    func showCurrentView()  {
+        //1.创建动画
+        let anim: POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        anim.fromValue = 0
+        anim.toValue = 1
+        anim.duration = 0.25
+        
+        //2. 添加到视图
+        pop_add(anim, forKey: nil)
+        //添加按钮的动画
+        showButtons()
+        
+    }
+    
+    ///弹力显示所有按钮
+    func showButtons()  {
+        //1. 获取scrollview的自视图的第0个视图
+        let v = scrollView.subviews[0]
+        
+        //2. 遍历v的所有按钮
+        for (i, btn) in v.subviews.enumerated() {
+            //1. 创建动画
+            let anim = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            //2. 设置动画
+            anim?.fromValue = btn.center.y + 400
+            anim?.toValue = btn.center.y
+            //弹力系数, 0 - 20
+            anim?.springBounciness = 8
+            //弹力速度0-20
+            anim?.springSpeed = 8
+            
+            //设置动画起始时间
+            anim?.beginTime = CACurrentMediaTime() + CFTimeInterval(i) * 0.025
+            
+            //3. 添加动画
+            btn.pop_add(anim, forKey: nil)
+        }
+    }
 }
 
 //里面每个函数都是私有
@@ -197,5 +240,6 @@ fileprivate extension ComposeTypeView {
         
         
     }
-    
 }
+
+
