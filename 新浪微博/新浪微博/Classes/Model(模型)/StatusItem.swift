@@ -26,6 +26,10 @@ class StatusItem: NSObject {
     var attitudes_count: Int = 0
     //被转发的原创微博
     var retweeted_status: StatusItem?
+    //微博创建时间字符串
+    var created_at: String?
+    //来源 - 发布微博使用的客户端
+    var source: String?
     
     
     //微博配图模型数组
