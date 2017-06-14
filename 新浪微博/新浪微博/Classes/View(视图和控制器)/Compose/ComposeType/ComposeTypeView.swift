@@ -18,7 +18,7 @@ class ComposeTypeView: UIView {
     //返回前一页约束
     @IBOutlet weak var gobackCenterX: NSLayoutConstraint!
     /// 按钮数据数组
-    fileprivate let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
+    fileprivate let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "ComposeViewController"],
                                ["imageName": "tabbar_compose_photo", "title": "照片/视频"],
                                ["imageName": "tabbar_compose_weibo", "title": "长微博"],
                                ["imageName": "tabbar_compose_lbs", "title": "签到"],
@@ -29,8 +29,10 @@ class ComposeTypeView: UIView {
                                ["imageName": "tabbar_compose_music", "title": "音乐"],
                                ["imageName": "tabbar_compose_shooting", "title": "拍摄"]]
     
+    //完成回调
+    fileprivate var completionBlock: ((_ clsName: String?)->())?
     
-    
+    //MARK: - 实例化方法
     class func composeTypeView() -> ComposeTypeView {
         let nib = UINib(nibName: "ComposeTypeView", bundle: nil)
         // 从 XIB加载完成视图, 就会调用awakeFromNib
@@ -51,7 +53,12 @@ class ComposeTypeView: UIView {
 
     
     /// 显示当前视图
-    func show() {
+    ///OC中的Block当前方法不能执行, 通常使用属性记录, 在需要的时候执行
+    func show(completionHandler: @escaping (_ clsName: String?)->()) {
+        
+        //0. 记录闭包 - 在需要的时候执行
+        completionBlock = completionHandler
+        
         //1. 将当前视图添加到
         //拿到跟视图控制器 加到跟视图控制器的View
         guard let vc = UIApplication.shared.keyWindow?.rootViewController else {
@@ -67,8 +74,50 @@ class ComposeTypeView: UIView {
 
     
     //MARK: - 监听方法
-    @objc fileprivate func clickButton() {
-        print("点我了")
+    @objc fileprivate func clickButton(selectedButton: ComposeTypeButton) {
+        print("点我了\(selectedButton)")
+        
+        //1. 判断当前显示的视图
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let v = scrollView.subviews[page]
+        
+        //2. 便利当前所有自视图
+        // - 选中的按钮变大
+        // - 未选中的按钮缩小
+        for (i, btn) in v.subviews.enumerated() {
+            //1. 缩放动画
+            let scaleAnim = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
+            //x, y 在系统中 使用CGPoint表示, 如果要转换id, 需要使用 NSValue包装
+            
+            let scale = (selectedButton == btn) ? 2 : 0.2
+            
+            
+            scaleAnim?.toValue = NSValue(cgPoint: CGPoint(x: scale, y: scale))
+            scaleAnim?.duration = 0.5
+            btn.pop_add(scaleAnim, forKey: nil)
+            
+            //2> 简便动画 - 动画组
+            let alphaAnim: POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            alphaAnim.toValue = 0.2
+            alphaAnim.duration = 0.5
+            
+            btn.pop_add(alphaAnim, forKey: nil)
+            /*
+             把动画加到同一个上面就是动画组
+             */
+            
+            //3. 监听动画监听
+            if i == 0 {
+                alphaAnim.completionBlock = { _, _ in
+                    //需要执行回调
+                    print("完成回调展现控制器")
+                    //执行完成闭包
+                    self.completionBlock?(selectedButton.clsName)
+                }
+            }
+        }
+        
+        
     }
     
     //返回上一页
@@ -267,7 +316,13 @@ fileprivate extension ComposeTypeView {
             if let actionName = dict["actionName"] {
                 //OC中使用NSSelectorFormString(@"clickMore")
                 btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            } else {
+                //FIXME: 不知道点了哪个按钮
+                btn.addTarget(self, action: #selector(clickButton(selectedButton:)), for: .touchUpInside)
             }
+            
+            //4. 设置要展现的类名 - 注意不需要任何判断, 有了就设置, 没有就不设置
+            btn.clsName = dict["clsName"]
         }
         
         //准备常量
