@@ -45,7 +45,8 @@ class ComposeTypeView: UIView {
         
     }
     @IBAction func close() {
-        removeFromSuperview()
+//        removeFromSuperview()
+        hideButtons()
     }
 
     
@@ -112,6 +113,25 @@ class ComposeTypeView: UIView {
 }
 //MARK: - 动画方法扩展
 fileprivate extension ComposeTypeView {
+    //隐藏当前视图动画
+    func hideButtons() {
+        //1. 根据contentOffset判断当前显示的子视图
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let v = scrollView.subviews[page]
+        
+        //2. 遍历v中所有按钮 - 反序
+        for (i, btn) in v.subviews.enumerated().reversed() {
+            //1. 创建动画
+            let anim: POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            anim.fromValue = btn.center.y
+            anim.toValue = btn.center.y + 400
+            btn.layer.pop_add(anim, forKey: nil)
+            //设置动画起始时间 - 这里需要减一下 反序
+            anim.beginTime = CACurrentMediaTime() + CFTimeInterval(v.subviews.count - i) * 0.025
+        }
+    }
+    
+    //显示当前视图动画
     func showCurrentView()  {
         //1.创建动画
         let anim: POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
