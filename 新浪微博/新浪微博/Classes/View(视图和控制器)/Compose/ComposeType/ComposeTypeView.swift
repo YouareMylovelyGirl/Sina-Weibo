@@ -11,7 +11,12 @@ import UIKit
 class ComposeTypeView: UIView {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    //关闭按钮约束
+    @IBOutlet weak var closeButtonCenterX: NSLayoutConstraint!
+    //返回前一页按钮
+    @IBOutlet weak var gobackButton: UIButton!
+    //返回前一页约束
+    @IBOutlet weak var gobackCenterX: NSLayoutConstraint!
     /// 按钮数据数组
     fileprivate let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
                                ["imageName": "tabbar_compose_photo", "title": "照片/视频"],
@@ -61,6 +66,45 @@ class ComposeTypeView: UIView {
     //MARK: - 监听方法
     @objc fileprivate func clickButton() {
         print("点我了")
+    }
+    
+    //返回上一页
+    @IBAction func clickReturn() {
+        //1. 滚动视图滚动到第一页
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        //2. 让两个按钮隐藏
+        gobackButton.isHidden = true
+        
+        closeButtonCenterX.constant = 0
+        gobackCenterX.constant = 0
+        
+        UIView.animate(withDuration: 0.25, animations: { 
+            //只要布局更新就调用这个方法
+            self.layoutIfNeeded()
+            self.gobackButton.alpha = 0
+        }) { (_) in
+            self.gobackButton.isHidden = true
+            self.gobackButton.alpha = 1
+        }
+        
+    }
+    @objc fileprivate func clickMore () {
+        print("点击了更多")
+        //将scrollview 滚动到第二页
+        scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width, y: 0), animated: true)
+        
+        //处理底部按钮, 让两个按钮分开
+        gobackButton.isHidden = false
+        
+        let margin = scrollView.bounds.size.width / 6
+        
+        closeButtonCenterX.constant += margin
+        gobackCenterX.constant -= margin
+        
+        UIView.animate(withDuration: 0.25) {
+            //只要约束位置有变化, 就可以调用这个进行强制位置更新
+            self.layoutIfNeeded()
+        }
     }
     
 }
@@ -126,8 +170,13 @@ fileprivate extension ComposeTypeView {
             
             //1. 创建按钮
             let btn = ComposeTypeButton.composeTypeButton(imageName: imageName, title: title)
-            
+            //2. 将btn添加到视图
             v.addSubview(btn)
+            //3. 添加监听方法
+            if let actionName = dict["actionName"] {
+                //OC中使用NSSelectorFormString(@"clickMore")
+                btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            }
         }
         
         //准备常量

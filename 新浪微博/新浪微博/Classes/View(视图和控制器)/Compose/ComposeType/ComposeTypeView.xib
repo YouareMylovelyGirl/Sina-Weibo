@@ -27,19 +27,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvd-of-hze">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfL-K3-PeP">
-                                        <rect key="frame" x="148" y="10" width="25" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfL-K3-PeP" userLabel="叉子">
+                                        <rect key="frame" x="147.5" y="10" width="25" height="25"/>
                                         <state key="normal" backgroundImage="tabbar_compose_background_icon_close"/>
                                         <connections>
                                             <action selector="close" destination="iN0-l3-epB" eventType="touchUpInside" id="1BU-Jr-26w"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cds-sa-5cC" userLabel="返回">
+                                        <rect key="frame" x="148" y="10" width="25" height="25"/>
+                                        <state key="normal" image="tabbar_compose_background_icon_return"/>
+                                        <connections>
+                                            <action selector="clickReturn" destination="iN0-l3-epB" eventType="touchUpInside" id="ysu-VP-25S"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="cds-sa-5cC" firstAttribute="centerY" secondItem="Uvd-of-hze" secondAttribute="centerY" id="FFV-TQ-fj1"/>
                                     <constraint firstAttribute="height" constant="44" id="MHh-JA-Yjs"/>
                                     <constraint firstItem="GfL-K3-PeP" firstAttribute="centerX" secondItem="Uvd-of-hze" secondAttribute="centerX" id="h5E-KE-RgO"/>
                                     <constraint firstItem="GfL-K3-PeP" firstAttribute="centerY" secondItem="Uvd-of-hze" secondAttribute="centerY" id="iOo-7O-X35"/>
+                                    <constraint firstItem="cds-sa-5cC" firstAttribute="centerX" secondItem="Uvd-of-hze" secondAttribute="centerX" id="v1H-Yo-tXr"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMV-dG-3Uy">
@@ -74,6 +83,9 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
+                <outlet property="closeButtonCenterX" destination="h5E-KE-RgO" id="4uO-ug-s0y"/>
+                <outlet property="gobackButton" destination="cds-sa-5cC" id="EqJ-eG-q0K"/>
+                <outlet property="gobackCenterX" destination="v1H-Yo-tXr" id="i7c-QH-cgC"/>
                 <outlet property="scrollView" destination="uMV-dG-3Uy" id="L89-qo-at2"/>
             </connections>
             <point key="canvasLocation" x="-100.5" y="-181"/>
@@ -82,5 +94,6 @@
     <resources>
         <image name="compose_slogan" width="154" height="48"/>
         <image name="tabbar_compose_background_icon_close" width="25" height="25"/>
+        <image name="tabbar_compose_background_icon_return" width="25" height="25"/>
     </resources>
 </document>
