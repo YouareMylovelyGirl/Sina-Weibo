@@ -34,6 +34,7 @@
 		A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */; };
 		A43C40681EE9013E0076EEEE /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C40671EE9013E0076EEEE /* UserAccount.swift */; };
 		A43C406B1EE96BD80076EEEE /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C406A1EE96BD80076EEEE /* TitleButton.swift */; };
+		A43CD4C31EF21F460010184A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43CD4C21EF21F460010184A /* String+Extensions.swift */; };
 		A44460351EEE0DAC0088B3FC /* StatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */; };
 		A45A027A1EE5510200425C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A02791EE5510200425C64 /* AppDelegate.swift */; };
 		A45A02811EE5510200425C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A02801EE5510200425C64 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		A43C40641EE8C1720076EEEE /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		A43C40671EE9013E0076EEEE /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		A43C406A1EE96BD80076EEEE /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		A43CD4C21EF21F460010184A /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		A44460341EEE0DAC0088B3FC /* StatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusRetweetedCell.xib; sourceTree = "<group>"; };
 		A45A02761EE5510200425C64 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A02791EE5510200425C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		A45A02A51EE55FC000425C64 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A43CD4C21EF21F460010184A /* String+Extensions.swift */,
 				A45A02A61EE55FFF00425C64 /* Bundle+Extensions.swift */,
 				A45A02A81EE569A900425C64 /* UIColor+Extensions.swift */,
 				A45A02AD1EE5B13400425C64 /* UIBarButtonItem+Extension.swift */,
@@ -567,6 +570,7 @@
 				A437DE661EEFB35B005385AF /* MTRefreshView.swift in Sources */,
 				A45A02A41EE557EE00425C64 /* ProfileController.swift in Sources */,
 				A4D9F8941EE7ECBF00778047 /* StatusListViewModel.swift in Sources */,
+				A43CD4C31EF21F460010184A /* String+Extensions.swift in Sources */,
 				A43C40651EE8C1720076EEEE /* WBOAuthViewController.swift in Sources */,
 				A43802441EEAB0D100913232 /* StatusCell.swift in Sources */,
 				A438A1F91EED3E4B0070DF3D /* StatusPicture.swift in Sources */,

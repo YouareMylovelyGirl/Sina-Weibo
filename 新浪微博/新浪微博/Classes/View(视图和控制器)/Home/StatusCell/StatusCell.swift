@@ -31,7 +31,7 @@ class StatusCell: UITableViewCell {
             //配图视图的视图模型
             pictureView.viewModel = viewModel
             //设置来源
-            sourceLabel.text = viewModel?.status.source
+            sourceLabel.text = viewModel?.sourceStr
             
             //测试修改配图视图的高度
 //            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0

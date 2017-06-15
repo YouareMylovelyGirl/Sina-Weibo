@@ -40,6 +40,8 @@ class StatusViewModel:CustomStringConvertible {
     var likeStr: String?
     //配图视图
     var pictureViewSize = CGSize()
+    //来源字符串
+    var sourceStr: String?
     
     //如果是被转发的微博, 原创微博一定没有图
     var picURLs :[StatusPicture]? {
@@ -89,6 +91,9 @@ class StatusViewModel:CustomStringConvertible {
         
         //计算行高
         updateRowHeight()
+        
+        //设置来源字符串
+        sourceStr = "来自 " + (model.source?.yg_href()?.text ?? "")
         
     }
     
