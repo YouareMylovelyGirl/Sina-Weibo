@@ -29,7 +29,13 @@ class StatusItem: NSObject {
     //微博创建时间字符串
     var created_at: String?
     //来源 - 发布微博使用的客户端
-    var source: String?
+    var source: String? {
+        didSet {
+            //重新计算来源并且保存
+            //在didSet中, 给source在此设置值, 不会调用didSet
+            source = "来自 " + (source?.yg_href()?.text ?? "")
+        }
+    }
     
     
     //微博配图模型数组
